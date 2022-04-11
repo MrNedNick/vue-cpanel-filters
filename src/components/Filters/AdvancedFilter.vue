@@ -24,7 +24,7 @@
               v-model="advancedKeywordSelect"
               :items="advancedKeywordItems"
               :menu-props="{ bottom: true, offsetY: true }"
-              class="selectBtn"
+              class="selectBtn ml-3"
               filled
               outlined
             ></v-select>
@@ -33,17 +33,17 @@
               v-model="advancedPathSelect"
               :items="advancedPathItems"
               :menu-props="{ bottom: true, offsetY: true }"
-              class="selectBtn"
+              class="selectBtn ml-3"
               filled
               outlined
             ></v-select>
             <v-text-field
-              class="advanced-field"
+              class="advanced-field ml-3"
               filled
               outlined
               placeholder="Write here..."
             ></v-text-field>
-            <v-btn class="advanced-clear_btn" elevation="0"> Clear all </v-btn>
+            <v-btn class="advanced-btn clear" elevation="0"> Clear all </v-btn>
             <v-icon>mdi-close</v-icon>
           </div>
         </v-list-item>
@@ -60,28 +60,34 @@
             <v-select
               :disabled="true"
               :menu-props="{ bottom: true, offsetY: true }"
-              class="selectBtn"
+              class="selectBtn ml-3"
               filled
               outlined
             ></v-select>
             <v-text-field
-              class="advanced-field"
+              class="advanced-field ml-3"
               filled
               outlined
               :disabled="true"
             ></v-text-field>
-            <v-btn class="advanced-clear_btn" :disabled="true">Clear all</v-btn>
+            <v-btn
+              :disabled="false"
+              class="advanced-btn clear"
+              elevation="0"
+            >
+              Clear all
+            </v-btn>
             <v-icon>mdi-close</v-icon>
           </div>
         </v-list-item>
         <v-list-item>
-          <v-btn class="condition-btn">
+          <v-btn class="advanced-btn add" elevation="0">
             <v-icon color="primary">mdi-plus</v-icon>
             Add Condition
           </v-btn>
         </v-list-item>
         <v-list-item>
-          <v-btn class="apply-btn advanced-apply-btn"> Apply </v-btn>
+          <v-btn class="apply-btn advanced-apply-btn mt-5 mb-3"> Apply </v-btn>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -161,5 +167,31 @@ export default {
     height: 40px;
     background: rgba(26, 44, 89, 0.04);
   }
+}
+.advanced-apply-btn {
+  width: 616px !important;
+}
+.advanced-btn {
+  & .v-btn__content {
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    font-size: 14px;
+    color: #3366ff;
+    text-transform: none;
+        letter-spacing: 0em;
+  }
+}
+.advanced-btn.add {
+  & .v-btn__content {
+    font-family: "Source Sans Pro";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #05122d;
+
+  }
+}
+.advanced-btn.theme--light.v-btn.v-btn--has-bg {
+  background-color: white !important;
 }
 </style>

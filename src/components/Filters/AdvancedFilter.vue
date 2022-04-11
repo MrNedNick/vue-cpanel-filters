@@ -44,7 +44,7 @@
               placeholder="Write here..."
             ></v-text-field>
             <v-btn class="advanced-btn clear" elevation="0"> Clear all </v-btn>
-            <v-icon>mdi-close</v-icon>
+            <v-icon small>mdi-close</v-icon>
           </div>
         </v-list-item>
         <v-list-item>
@@ -77,7 +77,7 @@
             >
               Clear all
             </v-btn>
-            <v-icon>mdi-close</v-icon>
+            <v-icon small>mdi-close</v-icon>
           </div>
         </v-list-item>
         <v-list-item>
@@ -120,6 +120,11 @@ export default {
 .advanced-menu {
   width: 648px;
   display: flex;
+}
+.advanced-container{
+  display: flex;
+
+  align-items: baseline;
 }
 .selectBtn {
   width: 160px;

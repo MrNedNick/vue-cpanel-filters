@@ -110,21 +110,6 @@ body {
   background-color: #3366ff !important;
   border-radius: 6px;
 }
-// .advanced-apply-btn {
-//   width: 616px;
-// }
-// .advanced-clear_btn {
-//   & .v-btn__content {
-//     font-family: "Source Sans Pro";
-//     font-weight: 400;
-//     font-size: 14px;
-//     color: #3366ff;
-//     text-transform: none;
-//   }
-// }
-// .advanced-clear_btn.theme--light.v-btn.v-btn--has-bg {
-//   background-color: white !important;
-// }
 .bottom {
   display: flex;
   align-items: center;

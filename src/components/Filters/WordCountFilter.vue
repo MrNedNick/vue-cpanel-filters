@@ -10,7 +10,7 @@
       <v-list class="menu">
         <v-list-item>
           <div class="checkbox-container">
-            <v-checkbox class="pt-2" label="1" />
+            <v-checkbox class="pt-3" label="1" />
             <v-checkbox class="checkbox" label="2" />
             <v-checkbox class="checkbox" label="3" />
             <v-checkbox class="checkbox" label="4-10" />

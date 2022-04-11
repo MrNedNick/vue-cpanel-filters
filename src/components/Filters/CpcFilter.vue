@@ -16,10 +16,9 @@
               :key="btn.id"
               :label="btn.label"
               :value="btn.value"
-            ></v-radio>
+            />
           </v-radio-group>
         </v-list-item>
-
         <v-divider />
         <div class="custom-section ml-2 mr-2">
           <v-container>
@@ -40,7 +39,6 @@
                 outlined
                 :disabled="disabled"
                 v-model="cpcTo"
-                value="to"
               />
             </div>
           </v-container>

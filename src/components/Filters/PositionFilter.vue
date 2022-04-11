@@ -16,10 +16,12 @@
               :key="btn.id"
               :label="btn.label"
               :value="btn.value"
+  
             />
           </v-radio-group>
         </v-list-item>
         <v-divider />
+        <slot></slot>
         <v-list-item>
           <v-radio-group v-model="positionTitle">
             <v-radio
@@ -71,7 +73,6 @@
 export default {
   data: () => ({
     disabled: false,
-
     positionTitle: "Top 50",
     positionRadioBtnsTop: [
       {

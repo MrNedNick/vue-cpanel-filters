@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="container">
           <advanced-filter />
-          <position-filter />
+          <position-filter>djfdlsfj</position-filter>
           <volume-filter />
           <cpc-filter />
           <word-count-filter />

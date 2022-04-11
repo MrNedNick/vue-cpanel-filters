@@ -17,8 +17,7 @@
               class="selectBtn mt-2"
               filled
               outlined
-            >
-            </v-select>
+            />
             <v-select
               v-model="groupingsBestSelect"
               :items="groupingsBestItems"
@@ -26,10 +25,9 @@
               class="selectBtn mt-2 ml-4"
               filled
               outlined
-            ></v-select>
+            />
           </div>
         </v-list-item>
-
         <v-list-item>
           <v-btn class="apply-btn groupings-apply-btn"> Apply </v-btn>
         </v-list-item>

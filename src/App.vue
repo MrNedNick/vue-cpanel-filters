@@ -90,7 +90,7 @@ body {
 .v-text-field--full-width > .v-input__control > .v-input__slot,
 .v-text-field--outlined > .v-input__control > .v-input__slot {
   min-height: 0px !important;
-  max-width: 70px;
+  max-width: 160px !important;
   border-radius: 6px;
 }
 .apply-btn {

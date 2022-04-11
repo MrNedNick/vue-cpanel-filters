@@ -14,7 +14,7 @@
               v-model="groupingsEqualSelect"
               :items="groupingsEqualItems"
               :menu-props="{ bottom: true, offsetY: true }"
-              class="selectBtn"
+              class="selectBtn mt-2"
               filled
               outlined
             >
@@ -23,7 +23,7 @@
               v-model="groupingsBestSelect"
               :items="groupingsBestItems"
               :menu-props="{ bottom: true, offsetY: true }"
-              class="selectBtn"
+              class="selectBtn mt-2 ml-4"
               filled
               outlined
             ></v-select>
@@ -62,5 +62,7 @@ export default {
 }
 .apply-btn.groupings-apply-btn {
   width: 336px;
+  margin-top: 24px;
+  margin-bottom: 12px;
 }
 </style>

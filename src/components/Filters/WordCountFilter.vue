@@ -9,7 +9,14 @@
       </template>
       <v-list class="menu">
         <v-list-item>
-          <v-select v-model="value" :items="items" label="Select Item" multiple>
+          <div class="checkbox-container">
+            <v-checkbox class="pt-2" label="1" />
+            <v-checkbox class="checkbox" label="2" />
+            <v-checkbox class="checkbox" label="3" />
+            <v-checkbox class="checkbox" label="4-10" />
+            <v-checkbox class="checkbox" label="Custom" />
+          </div>
+          <!-- <v-select v-model="value" :items="items" label="Select Item" multiple>
             <template v-slot:selection="{ item, index }">
               <v-chip v-if="index === 0">
                 <span>{{ item }}</span>
@@ -18,9 +25,8 @@
                 (+{{ value.length - 1 }} others)
               </span>
             </template>
-          </v-select>
+          </v-select> -->
         </v-list-item>
-
         <v-divider />
         <div class="custom-section ml-2 mr-2">
           <v-container>
@@ -67,4 +73,11 @@ export default {
 </script>
 
 <style>
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+}
+.checkbox {
+  margin-top: -10px;
+}
 </style>

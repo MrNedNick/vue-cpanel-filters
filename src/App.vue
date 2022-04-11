@@ -1,32 +1,135 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <v-app id="inspire">
+    <div class="wrapper">
+      <div class="container">
+          <advanced-filter />
+          <position-filter />
+          <volume-filter />
+          <cpc-filter />
+          <word-count-filter />
+          <groupings-filter />
+          <competitor-filter />
+      </div>
     </div>
-    <router-view/>
-  </div>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import AdvancedFilter from "./components/Filters/AdvancedFilter.vue";
+import CompetitorFilter from './components/Filters/CompetitorFilter.vue';
+import CpcFilter from './components/Filters/CpcFilter.vue';
+import GroupingsFilter from './components/Filters/GroupingsFilter.vue';
+import PositionFilter from './components/Filters/PositionFilter.vue';
+import VolumeFilter from './components/Filters/VolumeFilter.vue';
+import WordCountFilter from './components/Filters/WordCountFilter.vue';
+export default {
+  components: { 
+    AdvancedFilter, 
+    GroupingsFilter, 
+    PositionFilter, 
+    VolumeFilter, 
+    CpcFilter, 
+    WordCountFilter, 
+    CompetitorFilter 
+  },
+  data: () => ({
+  }),
+  methods: {
+  },
+};
+</script>
+
+
+<style lang='scss'>
+body {
+  font-family: "Source Sans Pro";
+  font-weight: 400;
+  font-size: 14px;
+  color: #05122d;
 }
+.wrapper {
+  background-color: #f5f6f7;
+  min-height: 1500px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.menu-container {
+  margin-left: 40px;
+  margin-top: 100px;
+}
+.advanced-container {
+  display: flex;
+  height: 40px !important;
+}
+.menu {
+  max-width: 201px;
+  margin-top: -24px;
+}
+.radio {
+  margin-top: 8px;
+}
+.theme--light.v-label {
+  color: #05122d !important;
+}
+.custom-section {
+  display: flex;
+}
+.section-label {
+  font-family: "Source Sans Pro";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 166%;
+  color: #05122d;
+  opacity: 0.4;
+  margin-left: 16px;
+  margin-top: -40px;
+}
+.v-text-field--filled > .v-input__control > .v-input__slot,
+.v-text-field--full-width > .v-input__control > .v-input__slot,
+.v-text-field--outlined > .v-input__control > .v-input__slot {
+  min-height: 0px !important;
+  max-width: 70px;
+  border-radius: 6px;
+}
+.apply-btn {
+  width: 169px;
+  height: 40px;
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  & .v-btn__content {
+    color: white;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: none;
   }
+}
+.apply-btn.theme--light.v-btn.v-btn--has-bg {
+  background-color: #3366ff !important;
+  border-radius: 6px;
+}
+.advanced-apply-btn {
+  width: 616px;
+}
+.advanced-clear_btn {
+  & .v-btn__content {
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    font-size: 14px;
+    color: #3366ff;
+    text-transform: none;
+  }
+}
+.advanced-clear_btn.theme--light.v-btn.v-btn--has-bg {
+  background-color: white !important;
+}
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+  margin-bottom: 16px;
 }
 </style>

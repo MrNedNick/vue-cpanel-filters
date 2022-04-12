@@ -17,7 +17,7 @@
             clearable
             offset-y
             outlined
-            append-icon=""
+            append-icon="mdi-chevron-down"
             color="#033"
             background-color="white"
             deletable-chips
@@ -27,6 +27,16 @@
               Volume:
             </template>
             <template v-slot:append-item>
+              <v-radio-group v-model="volumeTitle">
+                <v-radio
+                  class="radio"
+                  v-for="btn in volumeRadioBtns"
+                  :key="btn.id"
+                  :label="btn.label"
+                  :value="btn.value"
+                />
+                <v-radio class="radio" label="Custom" value="custom" />
+              </v-radio-group>
               <v-divider />
               <div class="custom-section ml-2 mr-2">
                 <v-container>
@@ -81,6 +91,31 @@ export default {
       openOnClick: false,
       maxHeight: 700,
     },
+    disabled: false,
+    volumeTitle: "0-10",
+    volumeRange: [{ from: "0" }, { to: "0" }],
+    volumeRadioBtns: [
+      {
+        id: 1,
+        label: "0-10",
+        value: "0-10",
+      },
+      {
+        id: 2,
+        label: "11-100",
+        value: "11-100",
+      },
+      {
+        id: 3,
+        label: "101-1000",
+        value: "101-1000",
+      },
+      {
+        id: 4,
+        label: "1001-5000",
+        value: "1001-5000",
+      },
+    ],
   }),
   methods: {},
 };
@@ -150,7 +185,7 @@ body {
 .v-text-field--full-width > .v-input__control > .v-input__slot,
 .v-text-field--outlined > .v-input__control > .v-input__slot {
   min-height: 0px !important;
-  max-width: 160px !important;
+  max-width: 200px !important;
   border-radius: 6px;
 }
 // apply btn
@@ -184,17 +219,17 @@ body {
 }
 // Select Input Title
 .select .v-text-field--full-width .v-input__prepend-inner,
-.v-text-field--enclosed .v-input__prepend-inner{
+.v-text-field--enclosed .v-input__prepend-inner {
   margin-top: 12px !important;
 }
 // Select Cross Btn
 .select .v-text-field--full-width .v-input__prepend-inner,
-.v-text-field--enclosed .v-input__append-inner{
+.v-text-field--enclosed .v-input__append-inner {
   margin-top: 8px !important;
 }
-// Select Input 
+// Select Input
 .v-application {
-    font-family: "Source Sans Pro";
-    line-height: 1.5;
+  font-family: "Source Sans Pro";
+  line-height: 1.5;
 }
 </style>

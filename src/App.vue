@@ -2,13 +2,23 @@
   <v-app id="inspire">
     <div class="wrapper">
       <div class="container">
-          <advanced-filter />
-          <position-filter>djfdlsfj</position-filter>
-          <volume-filter />
-          <cpc-filter />
-          <word-count-filter />
-          <groupings-filter />
-          <competitor-filter />
+        <advanced-filter />
+        <position-filter>djfdlsfj</position-filter>
+        <volume-filter />
+        <cpc-filter />
+        <word-count-filter />
+        <groupings-filter />
+        <competitor-filter />
+
+        <div class="menu-container">
+          <v-select
+            outlined
+            :items="items"
+          >
+            
+          </v-select>
+          <slot>fsalkjfls</slot>
+        </div>
       </div>
     </div>
   </v-app>
@@ -16,26 +26,26 @@
 
 <script>
 import AdvancedFilter from "./components/Filters/AdvancedFilter.vue";
-import CompetitorFilter from './components/Filters/CompetitorFilter.vue';
-import CpcFilter from './components/Filters/CpcFilter.vue';
-import GroupingsFilter from './components/Filters/GroupingsFilter.vue';
-import PositionFilter from './components/Filters/PositionFilter.vue';
-import VolumeFilter from './components/Filters/VolumeFilter.vue';
-import WordCountFilter from './components/Filters/WordCountFilter.vue';
+import CompetitorFilter from "./components/Filters/CompetitorFilter.vue";
+import CpcFilter from "./components/Filters/CpcFilter.vue";
+import GroupingsFilter from "./components/Filters/GroupingsFilter.vue";
+import PositionFilter from "./components/Filters/PositionFilter.vue";
+import VolumeFilter from "./components/Filters/VolumeFilter.vue";
+import WordCountFilter from "./components/Filters/WordCountFilter.vue";
 export default {
-  components: { 
-    AdvancedFilter, 
-    GroupingsFilter, 
-    PositionFilter, 
-    VolumeFilter, 
-    CpcFilter, 
-    WordCountFilter, 
-    CompetitorFilter 
+  components: {
+    AdvancedFilter,
+    GroupingsFilter,
+    PositionFilter,
+    VolumeFilter,
+    CpcFilter,
+    WordCountFilter,
+    CompetitorFilter,
   },
   data: () => ({
+    items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
   }),
-  methods: {
-  },
+  methods: {},
 };
 </script>
 
@@ -106,10 +116,15 @@ body {
     text-transform: none;
   }
 }
+// apply btn
 .apply-btn.theme--light.v-btn.v-btn--has-bg {
   background-color: #3366ff !important;
   border-radius: 6px;
 }
+.apply-btn.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
+  background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
 .bottom {
   display: flex;
   align-items: center;

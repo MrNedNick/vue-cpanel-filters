@@ -96,4 +96,17 @@ export default {
 </script>
 
 <style>
+.v-list-item {
+  padding: 0;
+}
+.radio{
+  margin-top: 0px;
+  padding: 8px 50px 8px 8px;
+}
+.radio:hover {
+  background: black;
+}
+.v-input--radio-group--column .v-radio:not(:last-child):not(:only-child) {
+    margin-bottom: 0px;
+}
 </style>

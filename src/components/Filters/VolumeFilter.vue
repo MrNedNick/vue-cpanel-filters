@@ -28,7 +28,7 @@
               <div>From</div>
               <v-text-field
                 outlined
-                :disabled="disabled"
+                :disabled="isDisabled()"
                 v-model="volumeRange.from"
                 value="from"
               />
@@ -39,7 +39,7 @@
               <div>To*</div>
               <v-text-field
                 outlined
-                :disabled="disabled"
+                :disabled="isDisabled()"
                 value="to"
                 v-model="volumeRange.to"
               />
@@ -48,7 +48,7 @@
         </div>
         <div class="section-label">*Max. value is unlimited</div>
         <div class="bottom">
-          <v-btn class="apply-btn" :disabled="disabled"> Apply </v-btn>
+          <v-btn class="apply-btn" :disabled="isDisabled()"> Apply </v-btn>
         </div>
       </v-list>
     </v-menu>
@@ -85,6 +85,12 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    isDisabled() {
+      return this.volumeTitle !== "custom" 
+
+    },
   },
 };
 </script>

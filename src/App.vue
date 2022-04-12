@@ -11,8 +11,43 @@
         <competitor-filter />
 
         <div class="menu-container">
-          <v-select outlined :items="items" offset-y> </v-select>
-          <slot>fsalkjfls</slot>
+          <v-select
+            class="select"
+            :items="items"
+            clearable
+            offset-y
+            outlined
+            append-icon=""
+            color="#033"
+            background-color="white"
+            deletable-chips
+            :menu-props="{ top: false, offsetY: true, maxHeight: 700 }"
+          >
+            <template v-slot:prepend-inner class="input-title">
+              Volume:
+            </template>
+            <template v-slot:append-item>
+              <v-divider />
+              <div class="custom-section ml-2 mr-2">
+                <v-container>
+                  <div class="flex">
+                    <div>From</div>
+                    <v-text-field outlined value="from" />
+                  </div>
+                </v-container>
+                <v-container>
+                  <div class="flex">
+                    <div>To*</div>
+                    <v-text-field outlined value="to" />
+                  </div>
+                </v-container>
+              </div>
+              <div class="section-label">*Max. value is unlimited</div>
+              <div class="bottom">
+                <v-btn class="apply-btn"> Apply </v-btn>
+              </div>
+            </template>
+          </v-select>
         </div>
       </div>
     </div>
@@ -39,6 +74,13 @@ export default {
   },
   data: () => ({
     items: ["Foo", "Bar", "Fizz", "Buzz"],
+    menuProps: {
+      closeOnClick: false,
+      closeOnContentClick: false,
+      disableKeys: true,
+      openOnClick: false,
+      maxHeight: 700,
+    },
   }),
   methods: {},
 };
@@ -69,7 +111,6 @@ body {
   height: 40px !important;
 }
 
-
 .menu {
   max-width: 201px;
   margin-top: -24px;
@@ -88,8 +129,6 @@ body {
 .v-input--radio-group--column .v-radio:not(:last-child):not(:only-child) {
   margin-bottom: 0px;
 }
-
-
 
 .theme--light.v-label {
   color: #05122d !important;
@@ -142,5 +181,20 @@ body {
   justify-content: center;
   margin-top: 36px;
   margin-bottom: 16px;
+}
+// Select Input Title
+.select .v-text-field--full-width .v-input__prepend-inner,
+.v-text-field--enclosed .v-input__prepend-inner{
+  margin-top: 12px !important;
+}
+// Select Cross Btn
+.select .v-text-field--full-width .v-input__prepend-inner,
+.v-text-field--enclosed .v-input__append-inner{
+  margin-top: 8px !important;
+}
+// Select Input 
+.v-application {
+    font-family: "Source Sans Pro";
+    line-height: 1.5;
 }
 </style>

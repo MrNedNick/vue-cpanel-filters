@@ -10,11 +10,11 @@
       <v-list class="menu">
         <v-list-item>
           <div class="checkbox-container">
-            <v-checkbox class="pt-3" label="1" />
-            <v-checkbox class="checkbox" label="2" />
-            <v-checkbox class="checkbox" label="3" />
-            <v-checkbox class="checkbox" label="4-10" />
-            <v-checkbox class="checkbox" label="Custom" />
+            <v-checkbox class="pt-3 radio" label="1" />
+            <v-checkbox class="checkbox radio" label="2" />
+            <v-checkbox class="checkbox radio" label="3" />
+            <v-checkbox class="checkbox radio" label="4-10" />
+            <v-checkbox class="checkbox radio" label="Custom" />
           </div>
           <!-- <v-select v-model="value" :items="items" label="Select Item" multiple>
             <template v-slot:selection="{ item, index }">
@@ -78,6 +78,8 @@ export default {
   flex-direction: column;
 }
 .checkbox {
-  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

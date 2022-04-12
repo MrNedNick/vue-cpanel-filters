@@ -11,12 +11,7 @@
         <competitor-filter />
 
         <div class="menu-container">
-          <v-select
-            outlined
-            :items="items"
-          >
-            
-          </v-select>
+          <v-select outlined :items="items" offset-y> </v-select>
           <slot>fsalkjfls</slot>
         </div>
       </div>
@@ -43,7 +38,7 @@ export default {
     CompetitorFilter,
   },
   data: () => ({
-    items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
+    items: ["Foo", "Bar", "Fizz", "Buzz"],
   }),
   methods: {},
 };

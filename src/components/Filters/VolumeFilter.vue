@@ -105,9 +105,11 @@ export default {
 .radio {
   margin-top: 0px;
   padding: 8px 50px 8px 8px;
+  width: 201px;
 }
 .radio:hover {
-  background: black;
+  background-color: rgb(235, 235, 235);
+
 }
 .v-input--radio-group--column .v-radio:not(:last-child):not(:only-child) {
   margin-bottom: 0px;

@@ -68,13 +68,29 @@ body {
   display: flex;
   height: 40px !important;
 }
+
+
 .menu {
   max-width: 201px;
   margin-top: -24px;
 }
-.radio {
-  margin-top: 8px;
+.v-list-item {
+  padding: 0;
 }
+.radio {
+  margin-top: 0px;
+  padding: 8px 0px 8px 12px;
+  width: 201px;
+}
+.radio:hover {
+  background-color: rgba(235, 235, 235, 0.726);
+}
+.v-input--radio-group--column .v-radio:not(:last-child):not(:only-child) {
+  margin-bottom: 0px;
+}
+
+
+
 .theme--light.v-label {
   color: #05122d !important;
 }
@@ -98,6 +114,7 @@ body {
   max-width: 160px !important;
   border-radius: 6px;
 }
+// apply btn
 .apply-btn {
   width: 169px;
   height: 40px;
@@ -111,7 +128,6 @@ body {
     text-transform: none;
   }
 }
-// apply btn
 .apply-btn.theme--light.v-btn.v-btn--has-bg {
   background-color: #3366ff !important;
   border-radius: 6px;

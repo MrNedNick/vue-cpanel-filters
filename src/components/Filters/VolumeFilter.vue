@@ -99,7 +99,7 @@ export default {
 </script>
 
 <style>
-.v-list-item {
+/* .v-list-item {
   padding: 0;
 }
 .radio {
@@ -109,9 +109,8 @@ export default {
 }
 .radio:hover {
   background-color: rgb(235, 235, 235);
-
 }
 .v-input--radio-group--column .v-radio:not(:last-child):not(:only-child) {
   margin-bottom: 0px;
-}
+} */
 </style>

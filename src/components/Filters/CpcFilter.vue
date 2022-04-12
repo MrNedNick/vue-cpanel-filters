@@ -75,6 +75,11 @@ export default {
         label: "2.01-5.00 €",
         value: "2.01-5.00 €",
       },
+      {
+        id: 4,
+        label: "Custom",
+        value: "custom"
+      }
     ],
   }),
 };

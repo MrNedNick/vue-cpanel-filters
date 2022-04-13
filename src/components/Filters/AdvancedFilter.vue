@@ -11,7 +11,7 @@
         <advanced-item />
         <advanced-item />
         <v-list-item>
-          <v-btn class="advanced-btn add" elevation="0" @click="addCondition">
+          <v-btn class="advanced-btn add mb-4 mt-4" elevation="0" @click="addCondition">
             <v-icon color="primary">mdi-plus</v-icon>
             Add Condition
           </v-btn>
@@ -54,7 +54,8 @@ export default {
 <style lang='scss'>
 .advanced-menu {
   width: 648px;
-  display: flex;
+  height: 257px;
+
 }
 .advanced-container {
   display: flex;

@@ -15,7 +15,7 @@
       >
       </v-select>
       <v-select
-        v-if="advancedSelect === 'Keyword'"
+        v-if="advancedSelect === 'Keyword' || ''"
         v-model="advancedKeywordSelect"
         :items="advancedKeywordItems"
         :menu-props="{ bottom: true, offsetY: true, maxWidth: 160 }"
@@ -38,7 +38,9 @@
         outlined
         placeholder="Write here..."
       ></v-text-field>
-      <v-btn class="advanced-btn clear" elevation="0"> Clear all </v-btn>
+      <v-btn class="advanced-btn clear" elevation="0" @click="clearAll">
+        Clear all
+      </v-btn>
       <v-icon small>mdi-close</v-icon>
     </div>
   </v-list-item>
@@ -46,6 +48,12 @@
 
 <script>
 export default {
+  methods: {
+    clearAll() {
+      this.advancedSelect = "";
+      this.advancedKeywordSelect = "";
+    },
+  },
   data: () => ({
     advancedSelect: "Keyword",
     advancedSelectItems: ["Keyword", "Path"],

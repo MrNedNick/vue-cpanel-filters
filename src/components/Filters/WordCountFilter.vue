@@ -40,6 +40,7 @@
               />
             </div>
           </v-container>
+          <div class="custom-line">-</div>
           <v-container>
             <div class="flex">
               <div>To*</div>

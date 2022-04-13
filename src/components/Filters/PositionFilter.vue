@@ -16,12 +16,10 @@
               :key="btn.id"
               :label="btn.label"
               :value="btn.value"
-  
             />
           </v-radio-group>
         </v-list-item>
         <v-divider />
-        <slot></slot>
         <v-list-item>
           <v-radio-group v-model="positionTitle">
             <v-radio
@@ -34,7 +32,6 @@
             <v-radio class="radio" label="Custom" value="custom" />
           </v-radio-group>
         </v-list-item>
-
         <v-divider />
         <div class="custom-section ml-2 mr-2">
           <v-container>
@@ -48,6 +45,7 @@
               />
             </div>
           </v-container>
+          <div class="custom-line">-</div>
           <v-container>
             <div class="flex">
               <div>To*</div>

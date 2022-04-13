@@ -25,6 +25,7 @@
             <div class="flex">
               <div>From</div>
               <v-text-field
+                class="custom-textfield"
                 v-model="cpcFrom"
                 :disabled="disabled"
                 append-icon="mdi-currency-eur"
@@ -33,10 +34,12 @@
               />
             </div>
           </v-container>
+          <div class="custom-line">-</div>
           <v-container>
             <div class="flex">
               <div>To*</div>
               <v-text-field
+                class="custom-textfield"
                 v-model="cpcTo"
                 :disabled="disabled"
                 outlined
@@ -95,4 +98,5 @@ export default {
 .custom-section .v-text-field--enclosed .v-input__append-inner {
   margin-top: 4px !important;
 }
+
 </style>

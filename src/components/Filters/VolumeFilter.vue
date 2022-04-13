@@ -34,6 +34,7 @@
               />
             </div>
           </v-container>
+          <div class="custom-line">-</div>
           <v-container>
             <div class="flex">
               <div>To*</div>
@@ -42,7 +43,6 @@
                 :disabled="isDisabled()"
                 value="to"
                 v-model="volumeRange.to"
-                
               />
             </div>
           </v-container>
@@ -66,7 +66,7 @@ export default {
     return {
       disabled: false,
       volumeTitle: "",
-      volumeRange: { from: "0" , to: "0" },
+      volumeRange: { from: "0", to: "0" },
       volumeRadioBtns: [
         {
           id: 1,
@@ -88,7 +88,7 @@ export default {
           label: "1001-5000",
           value: "1001-5000",
         },
-                {
+        {
           id: 5,
           label: "Custom",
           value: "custom",

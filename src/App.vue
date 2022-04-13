@@ -45,6 +45,7 @@
                     <v-text-field outlined value="from" />
                   </div>
                 </v-container>
+                <div class="custom-line">-</div>
                 <v-container>
                   <div class="flex">
                     <div>To*</div>
@@ -68,8 +69,6 @@
         >
           Validate
         </v-btn> -->
-
-
       </div>
     </div>
   </v-app>
@@ -181,6 +180,9 @@ body {
 }
 .custom-section {
   display: flex;
+}
+.custom-line {
+  padding-top: 37px;
 }
 .section-label {
   font-family: "Source Sans Pro";

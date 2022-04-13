@@ -25,10 +25,11 @@
             <div class="flex">
               <div>From</div>
               <v-text-field
-                outlined
-                :disabled="disabled"
                 v-model="cpcFrom"
+                :disabled="disabled"
+                append-icon="mdi-currency-eur"
                 value="from"
+                outlined
               />
             </div>
           </v-container>
@@ -36,9 +37,10 @@
             <div class="flex">
               <div>To*</div>
               <v-text-field
-                outlined
-                :disabled="disabled"
                 v-model="cpcTo"
+                :disabled="disabled"
+                outlined
+                append-icon="mdi-currency-eur"
               />
             </div>
           </v-container>
@@ -78,12 +80,19 @@ export default {
       {
         id: 4,
         label: "Custom",
-        value: "custom"
-      }
+        value: "custom",
+      },
     ],
   }),
 };
 </script>
 
 <style>
+/* € */
+.custom-textfield .v-icon.v-icon {
+  font-size: 14px;
+}
+.custom-section .v-text-field--enclosed .v-input__append-inner {
+  margin-top: 4px !important;
+}
 </style>

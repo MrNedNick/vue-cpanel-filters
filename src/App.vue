@@ -59,6 +59,17 @@
             </template>
           </v-select>
         </div>
+
+        <!-- <v-btn
+          :disabled="!valid"
+          color="success"
+          class="mr-4"
+          @click="validate"
+        >
+          Validate
+        </v-btn> -->
+
+
       </div>
     </div>
   </v-app>

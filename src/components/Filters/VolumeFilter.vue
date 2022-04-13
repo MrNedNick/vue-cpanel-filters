@@ -17,7 +17,7 @@
               :label="btn.label"
               :value="btn.value"
             />
-            <v-radio class="radio" label="Custom" value="custom" />
+            <!-- <v-radio class="radio" label="Custom" value="custom" /> -->
           </v-radio-group>
         </v-list-item>
 
@@ -42,6 +42,7 @@
                 :disabled="isDisabled()"
                 value="to"
                 v-model="volumeRange.to"
+                
               />
             </div>
           </v-container>
@@ -64,8 +65,8 @@ export default {
   data() {
     return {
       disabled: false,
-      volumeTitle: "0-10",
-      volumeRange: [{ from: "0" }, { to: "0" }],
+      volumeTitle: "",
+      volumeRange: { from: "0" , to: "0" },
       volumeRadioBtns: [
         {
           id: 1,
@@ -86,6 +87,11 @@ export default {
           id: 4,
           label: "1001-5000",
           value: "1001-5000",
+        },
+                {
+          id: 5,
+          label: "Custom",
+          value: "custom",
         },
       ],
     };

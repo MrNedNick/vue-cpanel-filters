@@ -3,7 +3,12 @@
     <v-menu offset-y :close-on-content-click="false" class="menu">
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
-          Pos: {{ positionTitle }}
+          Pos:
+          {{
+            positionTitle !== "custom"
+              ? positionTitle
+              : `${positionRange.from} - ${positionRange.to}`
+          }}
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
@@ -39,8 +44,8 @@
               <div>From</div>
               <v-text-field
                 outlined
-                :disabled="disabled"
-                v-model="volumeRange.from"
+                :disabled="isDisabled()"
+                v-model="positionRange.from"
                 value="from"
               />
             </div>
@@ -51,9 +56,9 @@
               <div>To*</div>
               <v-text-field
                 outlined
-                :disabled="disabled"
+                :disabled="isDisabled()"
                 value="to"
-                v-model="volumeRange.to"
+                v-model="positionRange.to"
               />
             </div>
           </v-container>
@@ -69,9 +74,15 @@
 
 <script>
 export default {
+  methods: {
+    isDisabled() {
+      return this.volumeTitle !== "custom";
+    },
+  },
   data: () => ({
     disabled: false,
-    positionTitle: "Top 50",
+    positionTitle: "",
+    positionRange: { from: "", to: "" },
     positionRadioBtnsTop: [
       {
         id: 1,
@@ -121,7 +132,6 @@ export default {
         value: "51-100",
       },
     ],
-    volumeRange: [{ from: "0" }, { to: "0" }],
   }),
 };
 </script>

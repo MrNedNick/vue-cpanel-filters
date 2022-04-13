@@ -1,9 +1,14 @@
 <template>
   <div class="menu-container">
-    <v-menu offset-y :close-on-content-click="false" class="menu">
+    <v-menu
+      :close-on-content-click="false"
+      class="menu"
+      offset-y
+    >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on" class="main-btn">
-          Volume: {{ volumeTitle || `${volumeRange.from} - ${volumeRange.to}` }}
+        <v-btn v-bind="attrs" v-on="on"  class="main-btn">
+          Volume: {{ (volumeTitle !== 'custom') ? volumeTitle :
+          `${volumeRange.from} - ${volumeRange.to}` }}
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
@@ -17,14 +22,8 @@
               :label="btn.label"
               :value="btn.value"
             />
-            <!-- <v-radio
-              value="custom"
-              class="radio"
-              label="Custom"
-            /> -->
           </v-radio-group>
         </v-list-item>
-
         <v-divider />
         <div class="custom-section ml-2 mr-2">
           <v-container>
@@ -34,6 +33,7 @@
                 outlined
                 :disabled="isDisabled()"
                 v-model="volumeRange.from"
+                placeholder="0"
               />
             </div>
           </v-container>
@@ -45,13 +45,16 @@
                 outlined
                 :disabled="isDisabled()"
                 v-model="volumeRange.to"
+                placeholder="0"
               />
             </div>
           </v-container>
         </div>
         <div class="section-label">*Max. value is unlimited</div>
         <div class="bottom">
-          <v-btn class="apply-btn" :disabled="isDisabled()"> Apply </v-btn>
+          <v-btn class="apply-btn" :disabled="isDisabled()"> 
+            Apply 
+          </v-btn>
         </div>
       </v-list>
     </v-menu>
@@ -68,7 +71,7 @@ export default {
     return {
       disabled: false,
       volumeTitle: "",
-      volumeRange: { from: "0", to: "0" },
+      volumeRange: { from: "", to: "" },
       volumeRadioBtns: [
         {
           id: 1,
@@ -93,15 +96,18 @@ export default {
         {
           id: 5,
           label: "Custom",
-          value: "",
+          value: "custom",
         },
       ],
     };
   },
   methods: {
     isDisabled() {
-      return this.volumeTitle !== "";
+      return this.volumeTitle !== "custom";
     },
+    closeMenu() {
+       console.log('close')
+    }
   },
 };
 </script>
@@ -121,4 +127,6 @@ export default {
 .v-input--radio-group--column .v-radio:not(:last-child):not(:only-child) {
   margin-bottom: 0px;
 } */
+
+/* menuable__content__active */
 </style>

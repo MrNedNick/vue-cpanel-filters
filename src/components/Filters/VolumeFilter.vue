@@ -24,6 +24,9 @@
             />
           </v-radio-group>
         </v-list-item>
+        <!-- <custom-section
+        
+        /> -->
         <v-divider />
         <div class="custom-section ml-2 mr-2">
           <v-container>
@@ -61,9 +64,11 @@
 
 <script>
 import RadioSelect from "../Shared/RadioSelect.vue";
+import CustomSection from "../Shared/CustomSection.vue";
 export default {
   components: {
-    RadioSelect,
+    RadioSelect, 
+    CustomSection
   },
   data() {
     return {

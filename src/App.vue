@@ -160,9 +160,10 @@ body {
   max-width: 201px;
   margin-top: -24px;
 }
-.v-list-item {
+.menu .v-list-item {
   padding: 0;
 }
+
 .radio {
   margin-top: 0px;
   padding: 8px 0px 8px 12px;

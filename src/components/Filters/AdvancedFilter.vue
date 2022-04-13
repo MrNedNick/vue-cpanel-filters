@@ -123,7 +123,6 @@ export default {
 }
 .advanced-container{
   display: flex;
-
   align-items: baseline;
 }
 .selectBtn {

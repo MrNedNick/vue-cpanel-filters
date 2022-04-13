@@ -1,14 +1,14 @@
 <template>
   <div class="menu-container">
-    <v-menu
-      :close-on-content-click="false"
-      class="menu"
-      offset-y
-    >
+    <v-menu :close-on-content-click="false" class="menu" offset-y>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on"  class="main-btn">
-          Volume: {{ (volumeTitle !== 'custom') ? volumeTitle :
-          `${volumeRange.from} - ${volumeRange.to}` }}
+        <v-btn v-bind="attrs" v-on="on" class="main-btn">
+          Volume:
+          {{
+            volumeTitle !== "custom"
+              ? volumeTitle
+              : `${volumeRange.from} - ${volumeRange.to}`
+          }}
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
@@ -52,9 +52,7 @@
         </div>
         <div class="section-label">*Max. value is unlimited</div>
         <div class="bottom">
-          <v-btn class="apply-btn" :disabled="isDisabled()"> 
-            Apply 
-          </v-btn>
+          <v-btn class="apply-btn" :disabled="isDisabled()"> Apply </v-btn>
         </div>
       </v-list>
     </v-menu>
@@ -105,8 +103,8 @@ export default {
       return this.volumeTitle !== "custom";
     },
     closeMenu() {
-       console.log('close')
-    }
+      console.log("close");
+    },
   },
 };
 </script>

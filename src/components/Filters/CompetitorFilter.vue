@@ -3,7 +3,12 @@
     <v-menu offset-y :close-on-content-click="false" class="menu">
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
-          Comp: {{ competitorTitle }}
+          Comp:
+          {{
+            competitorTitle !== "custom"
+              ? competitorTitle
+              : `${competitorRange.from} - ${competitorRange.to}`
+          }}
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
@@ -17,7 +22,6 @@
               :label="btn.label"
               :value="btn.value"
             />
-            <v-radio class="radio" label="Custom" value="custom" />
           </v-radio-group>
         </v-list-item>
         <v-divider />
@@ -27,9 +31,9 @@
               <div>From</div>
               <v-text-field
                 outlined
-                :disabled="disabled"
-                v-model="selectedItem"
-                value="from"
+                :disabled="isDisabled()"
+                v-model="competitorRange.to"
+                placeholder="0"
               />
             </div>
           </v-container>
@@ -39,16 +43,16 @@
               <div>To*</div>
               <v-text-field
                 outlined
-                :disabled="disabled"
-                value="to"
-                v-model="selectedItem"
+                :disabled="isDisabled()"
+                v-model="competitorRange.to"
+                placeholder="0"
               />
             </div>
           </v-container>
         </div>
         <div class="section-label">*Max. value is unlimited</div>
         <div class="bottom">
-          <v-btn class="apply-btn" :disabled="disabled"> Apply </v-btn>
+          <v-btn class="apply-btn" :disabled="isDisabled()"> Apply </v-btn>
         </div>
       </v-list>
     </v-menu>
@@ -57,10 +61,14 @@
 
 <script>
 export default {
+  methods: {
+    isDisabled() {
+      return this.competitorTitle !== "custom";
+    },
+  },
   data: () => ({
-    selectedItem: null,
-    disabled: false,
-    competitorTitle: "0-20",
+    competitorTitle: "",
+    competitorRange: { from: "", to: "" },
     competitorRadioBtns: [
       {
         id: 1,
@@ -81,6 +89,11 @@ export default {
         id: 4,
         label: "76-100",
         value: "76-100",
+      },
+      {
+        id: 5,
+        label: "Custom",
+        value: "custom",
       },
     ],
   }),

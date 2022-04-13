@@ -69,7 +69,6 @@ export default {
   },
   data() {
     return {
-      disabled: false,
       volumeTitle: "",
       volumeRange: { from: "", to: "" },
       volumeRadioBtns: [

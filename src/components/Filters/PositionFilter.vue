@@ -34,7 +34,6 @@
               :label="btn.label"
               :value="btn.value"
             />
-            <v-radio class="radio" label="Custom" value="custom" />
           </v-radio-group>
         </v-list-item>
         <v-divider />
@@ -47,6 +46,7 @@
                 :disabled="isDisabled()"
                 v-model="positionRange.from"
                 value="from"
+                placeholder="0"
               />
             </div>
           </v-container>
@@ -59,13 +59,14 @@
                 :disabled="isDisabled()"
                 value="to"
                 v-model="positionRange.to"
+                placeholder="0"
               />
             </div>
           </v-container>
         </div>
         <div class="section-label">*Max. value is unlimited</div>
         <div class="bottom">
-          <v-btn class="apply-btn" :disabled="disabled"> Apply </v-btn>
+          <v-btn class="apply-btn" :disabled="isDisabled()"> Apply </v-btn>
         </div>
       </v-list>
     </v-menu>
@@ -76,11 +77,10 @@
 export default {
   methods: {
     isDisabled() {
-      return this.volumeTitle !== "custom";
+      return this.positionTitle !== "custom";
     },
   },
   data: () => ({
-    disabled: false,
     positionTitle: "",
     positionRange: { from: "", to: "" },
     positionRadioBtnsTop: [
@@ -130,6 +130,11 @@ export default {
         id: 9,
         label: "51-100",
         value: "51-100",
+      },
+      {
+        id: 10,
+        label: "Custom",
+        value: "custom",
       },
     ],
   }),

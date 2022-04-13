@@ -8,14 +8,18 @@
         </v-btn>
       </template>
       <v-list class="advanced-menu">
-        <advanced-item v-for="condition in conditions" :key="condition.id" />
+        <advanced-item
+          v-for="condition in conditions"
+          :key="condition.id"
+          @delete="deleteCondition(condition.id)"
+        />
         <v-list-item>
           <v-btn
             class="advanced-btn add mb-4 mt-4"
             elevation="0"
             @click="addCondition"
           >
-            <v-icon color="primary" >mdi-plus</v-icon>
+            <v-icon color="primary">mdi-plus</v-icon>
             Add Condition
           </v-btn>
         </v-list-item>
@@ -38,9 +42,12 @@ export default {
       };
       this.conditions.push(newTask);
     },
+    deleteCondition(id) {
+      this.conditions = this.conditions.filter((task) => task.id !== id);
+    },
   },
   data: () => ({
-    conditions: [ {id: 1} ],
+    conditions: [{ id: 1 }],
     advancedSelect: "Keyword",
     advancedSelectItems: ["Keyword", "Path"],
     advancedKeywordSelect: "Contains",

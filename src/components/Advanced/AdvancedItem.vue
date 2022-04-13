@@ -42,7 +42,10 @@
       <v-btn class="advanced-btn clear" elevation="0" @click="clearAll">
         Clear all
       </v-btn>
-      <v-icon small>mdi-close</v-icon>
+      <v-btn @click="$emit('delete')">
+          <v-icon small>mdi-close</v-icon>
+      </v-btn>
+      
     </div>
   </v-list-item>
 </template>

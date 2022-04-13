@@ -7,16 +7,15 @@
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
-      <v-list 
-        class="advanced-menu"
-      > 
-        <advanced-item 
-          v-for="item in items"
-          :key="item.id"
-        />
+      <v-list class="advanced-menu">
+        <advanced-item v-for="condition in conditions" :key="condition.id" />
         <v-list-item>
-          <v-btn class="advanced-btn add mb-4 mt-4" elevation="0" @click="addCondition">
-            <v-icon color="primary">mdi-plus</v-icon>
+          <v-btn
+            class="advanced-btn add mb-4 mt-4"
+            elevation="0"
+            @click="addCondition"
+          >
+            <v-icon color="primary" >mdi-plus</v-icon>
             Add Condition
           </v-btn>
         </v-list-item>
@@ -33,17 +32,15 @@ import AdvancedItem from "../Advanced/AdvancedItem.vue";
 export default {
   components: { AdvancedItem },
   methods: {
-    addCondition() {},
+    addCondition() {
+      let newTask = {
+        id: Date.now(),
+      };
+      this.conditions.push(newTask);
+    },
   },
   data: () => ({
-    items: [
-      {
-        id: 1
-      },
-      {
-        id: 2
-      }
-    ],
+    conditions: [ {id: 1} ],
     advancedSelect: "Keyword",
     advancedSelectItems: ["Keyword", "Path"],
     advancedKeywordSelect: "Contains",
@@ -67,7 +64,6 @@ export default {
 .advanced-menu {
   width: 648px;
   height: 257px;
-
 }
 .advanced-container {
   display: flex;

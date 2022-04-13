@@ -15,7 +15,7 @@
       >
       </v-select>
       <v-select
-        v-if="advancedSelect === 'Keyword' || ''"
+        v-if="advancedSelect === 'Keyword' || advancedSelect === ''"
         v-model="advancedKeywordSelect"
         :items="advancedKeywordItems"
         :menu-props="{ bottom: true, offsetY: true, maxWidth: 160 }"
@@ -33,6 +33,7 @@
         outlined
       ></v-select>
       <v-text-field
+        v-model="advancedTextField"
         class="advanced-field ml-3"
         filled
         outlined
@@ -52,6 +53,8 @@ export default {
     clearAll() {
       this.advancedSelect = "";
       this.advancedKeywordSelect = "";
+      this.advancedPathSelect = "";
+      this.advancedTextField = "";
     },
   },
   data: () => ({
@@ -68,8 +71,7 @@ export default {
     ],
     advancedPathSelect: "Starts with",
     advancedPathItems: ["Starts with", "Does not start with"],
-    selectedItem: null,
-    disabled: false,
+    advancedTextField: "",
   }),
 };
 </script>

@@ -3,13 +3,18 @@
     <v-menu offset-y :close-on-content-click="false" class="menu">
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
-          CPC: {{ cpc }}
+          CPC:
+          {{
+            cpcTitle !== "custom"
+              ? cpcTitle
+              : `${cpcRange.from} - ${cpcRange.to}`
+          }}
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
       <v-list class="menu">
         <v-list-item>
-          <v-radio-group v-model="cpc">
+          <v-radio-group v-model="cpcTitle">
             <v-radio
               class="radio"
               v-for="btn in cpcRadioBtns"
@@ -26,11 +31,12 @@
               <div>From</div>
               <v-text-field
                 class="custom-textfield"
-                v-model="cpcFrom"
-                :disabled="disabled"
+                v-model="cpcRange.from"
+                :disabled="isDisabled()"
                 append-icon="mdi-currency-eur"
                 value="from"
                 outlined
+                placeholder="0"
               />
             </div>
           </v-container>
@@ -40,17 +46,18 @@
               <div>To*</div>
               <v-text-field
                 class="custom-textfield"
-                v-model="cpcTo"
-                :disabled="disabled"
+                v-model="cpcRange.to"
+                :disabled="isDisabled()"
                 outlined
                 append-icon="mdi-currency-eur"
+                placeholder="0"
               />
             </div>
           </v-container>
         </div>
         <div class="section-label">*Max. value is unlimited</div>
         <div class="bottom">
-          <v-btn class="apply-btn" :disabled="disabled"> Apply </v-btn>
+          <v-btn class="apply-btn" :disabled="isDisabled()"> Apply </v-btn>
         </div>
       </v-list>
     </v-menu>
@@ -59,11 +66,14 @@
 
 <script>
 export default {
+  methods: {
+    isDisabled() {
+      return this.cpcTitle !== "custom";
+    },
+  },
   data: () => ({
-    disabled: false,
-    cpc: "0-0.50 €",
-    cpcFrom: "0",
-    cpcTo: "",
+    cpcTitle: "",
+    cpcRange: { from: "", to: "" },
     cpcRadioBtns: [
       {
         id: 1,
@@ -98,5 +108,4 @@ export default {
 .custom-section .v-text-field--enclosed .v-input__append-inner {
   margin-top: 4px !important;
 }
-
 </style>

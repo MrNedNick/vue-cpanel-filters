@@ -3,7 +3,7 @@
     <v-menu offset-y :close-on-content-click="false" class="menu">
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
-          Volume: {{ volumeTitle }}
+          Volume: {{ volumeTitle || `${volumeRange.from} - ${volumeRange.to}` }}
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
@@ -17,7 +17,11 @@
               :label="btn.label"
               :value="btn.value"
             />
-            <!-- <v-radio class="radio" label="Custom" value="custom" /> -->
+            <!-- <v-radio
+              value="custom"
+              class="radio"
+              label="Custom"
+            /> -->
           </v-radio-group>
         </v-list-item>
 
@@ -30,7 +34,6 @@
                 outlined
                 :disabled="isDisabled()"
                 v-model="volumeRange.from"
-                value="from"
               />
             </div>
           </v-container>
@@ -41,7 +44,6 @@
               <v-text-field
                 outlined
                 :disabled="isDisabled()"
-                value="to"
                 v-model="volumeRange.to"
               />
             </div>
@@ -91,14 +93,14 @@ export default {
         {
           id: 5,
           label: "Custom",
-          value: "custom",
+          value: "",
         },
       ],
     };
   },
   methods: {
     isDisabled() {
-      return this.volumeTitle !== "custom";
+      return this.volumeTitle !== "";
     },
   },
 };

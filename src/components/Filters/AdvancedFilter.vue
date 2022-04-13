@@ -7,9 +7,13 @@
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
-      <v-list class="advanced-menu">
-        <advanced-item />
-        <advanced-item />
+      <v-list 
+        class="advanced-menu"
+      > 
+        <advanced-item 
+          v-for="item in items"
+          :key="item.id"
+        />
         <v-list-item>
           <v-btn class="advanced-btn add mb-4 mt-4" elevation="0" @click="addCondition">
             <v-icon color="primary">mdi-plus</v-icon>
@@ -32,6 +36,14 @@ export default {
     addCondition() {},
   },
   data: () => ({
+    items: [
+      {
+        id: 1
+      },
+      {
+        id: 2
+      }
+    ],
     advancedSelect: "Keyword",
     advancedSelectItems: ["Keyword", "Path"],
     advancedKeywordSelect: "Contains",

@@ -24,6 +24,8 @@
             />
           </v-radio-group>
         </v-list-item>
+        <!-- <radio-select
+        ></radio-select> -->
         <!-- <custom-section
         
         /> -->
@@ -67,8 +69,8 @@ import RadioSelect from "../Shared/RadioSelect.vue";
 import CustomSection from "../Shared/CustomSection.vue";
 export default {
   components: {
-    RadioSelect, 
-    CustomSection
+    RadioSelect,
+    CustomSection,
   },
   data() {
     return {

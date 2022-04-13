@@ -35,6 +35,7 @@
 
 <script>
 export default {
+  props: [],
   methods: {
     isDisabled() {
       return this.title !== "custom";

@@ -1,6 +1,6 @@
 <template>
   <div class="menu-container">
-    <v-menu offset-y :close-on-content-click="false" class="menu">
+    <v-menu :close-on-content-click="false" class="menu" offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Advanced Filters
@@ -8,80 +8,10 @@
         </v-btn>
       </template>
       <v-list class="advanced-menu">
+        <advanced-item />
+        <advanced-item />
         <v-list-item>
-          <div class="advanced-container">
-            <v-select
-              v-model="advancedSelect"
-              :items="advancedSelectItems"
-              :menu-props="{ bottom: true, offsetY: true }"
-              class="selectBtn"
-              filled
-              outlined
-            >
-            </v-select>
-            <v-select
-              v-if="advancedSelect === 'Keyword'"
-              v-model="advancedKeywordSelect"
-              :items="advancedKeywordItems"
-              :menu-props="{ bottom: true, offsetY: true }"
-              class="selectBtn ml-3"
-              filled
-              outlined
-            ></v-select>
-            <v-select
-              v-if="advancedSelect === 'Path'"
-              v-model="advancedPathSelect"
-              :items="advancedPathItems"
-              :menu-props="{ bottom: true, offsetY: true }"
-              class="selectBtn ml-3"
-              filled
-              outlined
-            ></v-select>
-            <v-text-field
-              class="advanced-field ml-3"
-              filled
-              outlined
-              placeholder="Write here..."
-            ></v-text-field>
-            <v-btn class="advanced-btn clear" elevation="0"> Clear all </v-btn>
-            <v-icon small>mdi-close</v-icon>
-          </div>
-        </v-list-item>
-        <v-list-item>
-          <div class="advanced-container">
-            <v-select
-              :items="advancedKeywordItems"
-              :menu-props="{ bottom: true, offsetY: true }"
-              class="selectBtn"
-              filled
-              outlined
-              :disabled="true"
-            />
-            <v-select
-              :disabled="true"
-              :menu-props="{ bottom: true, offsetY: true }"
-              class="selectBtn ml-3"
-              filled
-              outlined
-            ></v-select>
-            <v-text-field
-              class="advanced-field ml-3"
-              filled
-              outlined
-              :disabled="true"
-            ></v-text-field>
-            <v-btn
-              :disabled="false"
-              class="advanced-btn clear"
-              elevation="0"
-            >
-              Clear all
-            </v-btn>
-            <v-icon small>mdi-close</v-icon>
-          </div>
-        </v-list-item>
-        <v-list-item>
-          <v-btn class="advanced-btn add" elevation="0">
+          <v-btn class="advanced-btn add" elevation="0" @click="addCondition">
             <v-icon color="primary">mdi-plus</v-icon>
             Add Condition
           </v-btn>
@@ -95,7 +25,12 @@
 </template>
 
 <script>
+import AdvancedItem from "../Advanced/AdvancedItem.vue";
 export default {
+  components: { AdvancedItem },
+  methods: {
+    addCondition() {},
+  },
   data: () => ({
     advancedSelect: "Keyword",
     advancedSelectItems: ["Keyword", "Path"],
@@ -121,7 +56,7 @@ export default {
   width: 648px;
   display: flex;
 }
-.advanced-container{
+.advanced-container {
   display: flex;
   align-items: baseline;
 }
@@ -182,7 +117,7 @@ export default {
     font-size: 14px;
     color: #3366ff;
     text-transform: none;
-        letter-spacing: 0em;
+    letter-spacing: 0em;
   }
 }
 .advanced-btn.add {
@@ -192,10 +127,12 @@ export default {
     font-size: 14px;
     line-height: 18px;
     color: #05122d;
-
   }
 }
 .advanced-btn.theme--light.v-btn.v-btn--has-bg {
   background-color: white !important;
+}
+.advanced-field {
+  width: 160px;
 }
 </style>

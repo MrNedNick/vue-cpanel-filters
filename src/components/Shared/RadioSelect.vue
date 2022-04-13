@@ -3,18 +3,19 @@
     <v-radio-group v-model="volumeTitle">
       <v-radio
         class="radio"
-        v-for="btn in volumeRadioBtns"
-        :key="btn.id"
-        :label="btn.label"
-        :value="btn.value"
+        v-for="radio in volumeRadioBtns"
+        :key="radio.id"
+        :label="radio.label"
+        :value="radio.value"
       />
-      <v-radio class="radio" label="Custom" value="custom" />
+      <!-- <v-radio class="radio" label="Custom" value="custom" /> -->
     </v-radio-group>
   </v-list-item>
 </template>
 
 <script>
 export default {
+  props: [""],
   data() {
     return {
       disabled: false,

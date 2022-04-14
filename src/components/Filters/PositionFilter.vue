@@ -36,47 +36,21 @@
             />
           </v-radio-group>
         </v-list-item>
-        <v-divider />
-        <div class="custom-section ml-2 mr-2">
-          <v-container>
-            <div class="flex">
-              <div>From</div>
-              <v-text-field
-                outlined
-                :disabled="isDisabled()"
-                v-model="positionRange.from"
-                value="from"
-                placeholder="0"
-              />
-            </div>
-          </v-container>
-          <div class="custom-line">-</div>
-          <v-container>
-            <div class="flex">
-              <div>To*</div>
-              <v-text-field
-                outlined
-                :disabled="isDisabled()"
-                value="to"
-                v-model="positionRange.to"
-                placeholder="0"
-              />
-            </div>
-          </v-container>
-        </div>
-        <div class="section-label">*Max. value is unlimited</div>
-        <apply-btn
-          :title="this.positionTitle"
+        <custom-section
+          :range="positionRange"
+          :title="positionTitle"
         />
+        <apply-btn :title="this.positionTitle" />
       </v-list>
     </v-menu>
   </div>
 </template>
 
 <script>
-import ApplyBtn from '../Shared/ApplyBtn.vue';
+import ApplyBtn from "../Shared/ApplyBtn.vue";
+import CustomSection from "../Shared/CustomSection.vue";
 export default {
-  components: { ApplyBtn },
+  components: { ApplyBtn, CustomSection },
   methods: {
     isDisabled() {
       return this.positionTitle !== "custom";

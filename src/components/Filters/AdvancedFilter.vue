@@ -19,7 +19,7 @@
             elevation="0"
             @click="addCondition"
           >
-            <v-icon color="primary">mdi-plus</v-icon>
+            <v-icon color="#3366FF" class="advanced-btn_icon">mdi-plus</v-icon>
             Add Condition
           </v-btn>
         </v-list-item>
@@ -70,7 +70,6 @@ export default {
 <style lang='scss'>
 .advanced-menu {
   width: 648px;
-  height: 257px;
 }
 .advanced-container {
   display: flex;
@@ -137,6 +136,7 @@ export default {
   }
 }
 .advanced-btn.add {
+  width: 160px;
   & .v-btn__content {
     font-family: "Source Sans Pro";
     font-weight: 600;

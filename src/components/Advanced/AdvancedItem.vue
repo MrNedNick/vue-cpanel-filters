@@ -40,7 +40,7 @@
         placeholder="Write here..."
       ></v-text-field>
       <a href="#" class="clear-btn ml-4" @click="clearAll"> Clear all </a>
-      <a href="#" class="delete-btn ml-4 " @click="$emit('delete')">
+      <a href="#" class="delete-btn ml-4" @click="$emit('delete')">
         <v-icon>mdi-close</v-icon>
       </a>
     </div>
@@ -78,9 +78,9 @@ export default {
 
 <style>
 .clear-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 400;

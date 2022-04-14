@@ -51,16 +51,18 @@
           </v-container>
         </div>
         <div class="section-label">*Max. value is unlimited</div>
-        <div class="bottom">
-          <v-btn class="apply-btn" :disabled="isDisabled()"> Apply </v-btn>
-        </div>
+        <apply-btn 
+          :title="this.competitorTitle"
+        />
       </v-list>
     </v-menu>
   </div>
 </template>
 
 <script>
+import ApplyBtn from '../Shared/ApplyBtn.vue';
 export default {
+  components: { ApplyBtn },
   methods: {
     isDisabled() {
       return this.competitorTitle !== "custom";

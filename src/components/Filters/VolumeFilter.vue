@@ -58,10 +58,10 @@
         <div class="section-label">*Max. value is unlimited</div> -->
         <!-- <div class="bottom">
           <v-btn class="apply-btn" :disabled="isDisabled()"> Apply </v-btn>
-        </div> -->
+        </div> -->        
         <apply-btn 
           :title="volumeTitle"
-        ></apply-btn>
+        />
       </v-list>
     </v-menu>
   </div>
@@ -111,12 +111,6 @@ export default {
     };
   },
   methods: {
-    isDisabled() {
-      return this.volumeTitle !== "custom";
-    },
-    closeMenu() {
-      console.log("close");
-    },
   },
 };
 </script>

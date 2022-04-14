@@ -7,8 +7,8 @@
           <div>From</div>
           <v-text-field
             outlined
-            :disabled="$emit('isDisabled')"
-            v-model="range.to"
+            :disabled="isDisabled()"
+            v-model="range.from"
             placeholder="0"
           />
         </div>
@@ -19,7 +19,7 @@
           <div>To*</div>
           <v-text-field
             outlined
-            :disabled="$emit('isDisabled')"
+            :disabled="isDisabled()"
             v-model="range.to"
             placeholder="0"
           />
@@ -27,20 +27,20 @@
       </v-container>
     </div>
     <div class="section-label">*Max. value is unlimited</div>
-    <div class="bottom">
-      <v-btn class="apply-btn" :disabled="$emit('isDisabled')"> Apply </v-btn>
-    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: [],
-  // methods: {
-  //   isDisabled() {
-  //     return this.title !== "custom";
-  //   },
-  // },
+  props: [
+    'title',
+    'range'
+  ],
+  methods: {
+    isDisabled() {
+      return this.title !== "custom";
+    },
+  },
 };
 </script>
 

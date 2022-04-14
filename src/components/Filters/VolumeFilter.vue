@@ -26,9 +26,10 @@
         </v-list-item>
         <!-- <radio-select
         ></radio-select> -->
-        <!-- <custom-section
-          @isDisabled="isDisabled"
-        /> -->
+        <custom-section
+          :title="volumeTitle"
+          :range="volumeRange"
+        />
         <!-- <v-divider />
         <div class="custom-section ml-2 mr-2">
           <v-container>

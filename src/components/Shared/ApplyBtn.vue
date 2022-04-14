@@ -24,7 +24,6 @@ export default {
 .apply-btn {
   width: 169px;
   height: 40px;
-
   & .v-btn__content {
     color: white;
     font-family: Source Sans Pro;
@@ -41,7 +40,6 @@ export default {
 .apply-btn.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
   background-color: rgba(0, 0, 0, 0.12) !important;
 }
-
 .bottom {
   display: flex;
   align-items: center;

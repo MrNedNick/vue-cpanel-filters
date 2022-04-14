@@ -29,37 +29,7 @@
         <custom-section
           :title="volumeTitle"
           :range="volumeRange"
-        />
-        <!-- <v-divider />
-        <div class="custom-section ml-2 mr-2">
-          <v-container>
-            <div class="flex">
-              <div>From</div>
-              <v-text-field
-                outlined
-                :disabled="isDisabled()"
-                v-model="volumeRange.from"
-                placeholder="0"
-              />
-            </div>
-          </v-container>
-          <div class="custom-line">-</div>
-          <v-container>
-            <div class="flex">
-              <div>To*</div>
-              <v-text-field
-                outlined
-                :disabled="isDisabled()"
-                v-model="volumeRange.to"
-                placeholder="0"
-              />
-            </div>
-          </v-container>
-        </div>
-        <div class="section-label">*Max. value is unlimited</div> -->
-        <!-- <div class="bottom">
-          <v-btn class="apply-btn" :disabled="isDisabled()"> Apply </v-btn>
-        </div> -->        
+        />  
         <apply-btn 
           :title="volumeTitle"
         />
@@ -115,22 +85,3 @@ export default {
   },
 };
 </script>
-
-<style>
-/* .v-list-item {
-  padding: 0;
-}
-.radio {
-  margin-top: 0px;
-  padding: 8px 50px 8px 8px;
-  width: 201px;
-}
-.radio:hover {
-  background-color: rgb(235, 235, 235);
-}
-.v-input--radio-group--column .v-radio:not(:last-child):not(:only-child) {
-  margin-bottom: 0px;
-} */
-
-/* menuable__content__active */
-</style>

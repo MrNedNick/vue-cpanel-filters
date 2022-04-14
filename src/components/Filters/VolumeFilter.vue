@@ -27,9 +27,9 @@
         <!-- <radio-select
         ></radio-select> -->
         <!-- <custom-section
-        
+          @isDisabled="isDisabled"
         /> -->
-        <v-divider />
+        <!-- <v-divider />
         <div class="custom-section ml-2 mr-2">
           <v-container>
             <div class="flex">
@@ -55,10 +55,13 @@
             </div>
           </v-container>
         </div>
-        <div class="section-label">*Max. value is unlimited</div>
-        <div class="bottom">
+        <div class="section-label">*Max. value is unlimited</div> -->
+        <!-- <div class="bottom">
           <v-btn class="apply-btn" :disabled="isDisabled()"> Apply </v-btn>
-        </div>
+        </div> -->
+        <apply-btn 
+          :title="volumeTitle"
+        ></apply-btn>
       </v-list>
     </v-menu>
   </div>
@@ -67,10 +70,12 @@
 <script>
 import RadioSelect from "../Shared/RadioSelect.vue";
 import CustomSection from "../Shared/CustomSection.vue";
+import ApplyBtn from '../Shared/ApplyBtn.vue';
 export default {
   components: {
     RadioSelect,
     CustomSection,
+    ApplyBtn,
   },
   data() {
     return {

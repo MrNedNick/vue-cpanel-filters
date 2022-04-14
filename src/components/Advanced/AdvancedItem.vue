@@ -39,13 +39,10 @@
         outlined
         placeholder="Write here..."
       ></v-text-field>
-      <v-btn class="advanced-btn clear" elevation="0" @click="clearAll">
-        Clear all
-      </v-btn>
-      <v-btn @click="$emit('delete')">
-          <v-icon small>mdi-close</v-icon>
-      </v-btn>
-      
+      <a href="#" class="clear-btn ml-4" @click="clearAll"> Clear all </a>
+      <a href="#" class="delete-btn" @click="$emit('delete')">
+        <v-icon small>mdi-close</v-icon>
+      </a>
     </div>
   </v-list-item>
 </template>
@@ -80,4 +77,21 @@ export default {
 </script>
 
 <style>
+.clear-btn {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 166%;
+  color: #3366ff; 
+  text-decoration: none;
+  transition: all 0.1s linear;
+  border-right: 1px solid rgba(51, 51, 51, 0.2);
+}
+.clear-btn:hover {
+  color: #0040ff;
+}
+.clear-btn:active {
+  color: black;
+}
 </style>

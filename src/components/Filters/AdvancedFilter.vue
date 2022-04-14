@@ -74,7 +74,7 @@ export default {
 }
 .advanced-container {
   display: flex;
-  align-items: baseline;
+
 }
 .selectBtn {
   width: 160px;

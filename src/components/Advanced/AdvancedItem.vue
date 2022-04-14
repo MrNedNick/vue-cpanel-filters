@@ -40,8 +40,8 @@
         placeholder="Write here..."
       ></v-text-field>
       <a href="#" class="clear-btn ml-4" @click="clearAll"> Clear all </a>
-      <a href="#" class="delete-btn" @click="$emit('delete')">
-        <v-icon small>mdi-close</v-icon>
+      <a href="#" class="delete-btn ml-4 " @click="$emit('delete')">
+        <v-icon>mdi-close</v-icon>
       </a>
     </div>
   </v-list-item>
@@ -78,20 +78,35 @@ export default {
 
 <style>
 .clear-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 166%;
-  color: #3366ff; 
+  color: #3366ff;
   text-decoration: none;
-  transition: all 0.1s linear;
-  border-right: 1px solid rgba(51, 51, 51, 0.2);
+  height: 30px;
 }
 .clear-btn:hover {
   color: #0040ff;
 }
 .clear-btn:active {
-  color: black;
+  color: #002bad;
+}
+.delete-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  height: 28px;
+}
+.delete-btn:hover {
+  color: #0040ff;
+}
+.delete-btn:active {
+  color: #002bad;
 }
 </style>

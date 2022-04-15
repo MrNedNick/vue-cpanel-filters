@@ -13,17 +13,11 @@
         </v-btn>
       </template>
       <v-list class="menu">
-        <v-list-item>
-          <v-radio-group v-model="positionTitle">
-            <v-radio
-              class="radio"
-              v-for="btn in positionRadioBtnsTop"
-              :key="btn.id"
-              :label="btn.label"
-              :value="btn.value"
-            />
-          </v-radio-group>
-        </v-list-item>
+        <radio-select
+          :items="positionRadioBtnsTop"
+          :title="positionTitle"
+          @update-title="update"
+        />
         <v-divider />
         <v-list-item>
           <v-radio-group v-model="positionTitle">
@@ -36,11 +30,8 @@
             />
           </v-radio-group>
         </v-list-item>
-        <custom-section
-          :range="positionRange"
-          :title="positionTitle"
-        />
-        <apply-btn :title="this.positionTitle" />
+        <custom-section :range="positionRange" :title="positionTitle" />
+        <apply-btn :title="positionTitle" />
       </v-list>
     </v-menu>
   </div>
@@ -49,8 +40,14 @@
 <script>
 import ApplyBtn from "../Shared/ApplyBtn.vue";
 import CustomSection from "../Shared/CustomSection.vue";
+import RadioSelect from "../Shared/RadioSelect.vue";
 export default {
-  components: { ApplyBtn, CustomSection },
+  components: { ApplyBtn, CustomSection, RadioSelect },
+  methods: {
+    update(title) {
+      this.positionTitle = title;
+    },
+  },
   data: () => ({
     positionTitle: "",
     positionRange: { from: "", to: "" },

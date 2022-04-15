@@ -24,33 +24,10 @@
             />
           </v-radio-group>
         </v-list-item>
-        <v-divider />
-        <div class="custom-section ml-2 mr-2">
-          <v-container>
-            <div class="flex">
-              <div>From</div>
-              <v-text-field
-                outlined
-                :disabled="isDisabled()"
-                v-model="competitorRange.to"
-                placeholder="0"
-              />
-            </div>
-          </v-container>
-          <div class="custom-line">-</div>
-          <v-container>
-            <div class="flex">
-              <div>To*</div>
-              <v-text-field
-                outlined
-                :disabled="isDisabled()"
-                v-model="competitorRange.to"
-                placeholder="0"
-              />
-            </div>
-          </v-container>
-        </div>
-        <div class="section-label">*Max. value is unlimited</div>
+        <custom-section
+          :range="competitorRange"
+          :title="competitorTitle"
+        />
         <apply-btn 
           :title="this.competitorTitle"
         />
@@ -61,13 +38,9 @@
 
 <script>
 import ApplyBtn from '../Shared/ApplyBtn.vue';
+import CustomSection from '../Shared/CustomSection.vue';
 export default {
-  components: { ApplyBtn },
-  methods: {
-    isDisabled() {
-      return this.competitorTitle !== "custom";
-    },
-  },
+  components: { ApplyBtn, CustomSection },
   data: () => ({
     competitorTitle: "",
     competitorRange: { from: "", to: "" },

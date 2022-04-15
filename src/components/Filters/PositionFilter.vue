@@ -51,11 +51,6 @@ import ApplyBtn from "../Shared/ApplyBtn.vue";
 import CustomSection from "../Shared/CustomSection.vue";
 export default {
   components: { ApplyBtn, CustomSection },
-  methods: {
-    isDisabled() {
-      return this.positionTitle !== "custom";
-    },
-  },
   data: () => ({
     positionTitle: "",
     positionRange: { from: "", to: "" },

@@ -29,7 +29,12 @@
           </v-btn>
         </v-list-item>
         <v-list-item>
-          <v-btn class="apply-btn advanced-apply-btn mt-5 mb-3"> Apply </v-btn>
+          <apply-btn 
+            class="advanced-apply-btn mt-5 mb-3"
+            :title="'custom'"
+            @close="$refs.menu.save()"
+          />
+          <!-- <v-btn class="apply-btn advanced-apply-btn mt-5 mb-3"> Apply </v-btn> -->
         </v-list-item>
       </v-list>
     </v-menu>
@@ -38,8 +43,9 @@
 
 <script>
 import AdvancedItem from "../Advanced/AdvancedItem.vue";
+import ApplyBtn from '../Shared/ApplyBtn.vue';
 export default {
-  components: { AdvancedItem },
+  components: { AdvancedItem, ApplyBtn },
   methods: {
     addCondition() {
       let newTask = {

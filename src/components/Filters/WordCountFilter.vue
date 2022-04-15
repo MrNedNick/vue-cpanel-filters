@@ -40,13 +40,13 @@
         maxWidth: 200,
       }"
     >
+      <template v-slot:prepend-inner class="input-title"> 
+        Word count
+      </template>
       <template v-slot:selection="{ index }">
         <v-chip v-if="index === 0">
-          <span>{{ value.length - 1 }}</span>
+          <span>{{ value.length }}</span>
         </v-chip>
-        <!-- <span v-if="index === 1" class="grey--text text-caption">
-          (+{{ value.length - 1 }} others)
-        </span> -->
       </template>
       <template v-slot:append-item>
         <!-- <custom-section></custom-section>
@@ -96,8 +96,8 @@ import CustomSection from "../Shared/CustomSection.vue";
 export default {
   components: { ApplyBtn, CustomSection },
   data: () => ({
-    items: ["foo", "bar", "fizz", "buzz", "fizzbuzz", "foobar"],
-    value: ["foo", "bar", "fizz"],
+    items: ["1", "2", "3", "4-10", "Custom"],
+    value: [],
     selectedItem: null,
     disabled: false,
   }),
@@ -113,5 +113,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.v-input__prepend-inner{
+  width: 145px;
 }
 </style>

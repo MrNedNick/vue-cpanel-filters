@@ -1,5 +1,4 @@
 <template>
-  <div class="bottom">
     <v-btn
       :disabled="isDisabled()"
       class="apply-btn"
@@ -7,7 +6,6 @@
     > 
       Apply 
     </v-btn>
-  </div>
 </template>
 
 <script>

@@ -1,6 +1,11 @@
 <template>
   <div class="menu-container">
-    <v-menu :close-on-content-click="false" class="menu" offset-y>
+    <v-menu
+      :close-on-content-click="false"
+      class="menu"
+      ref="menu"
+      offset-y
+    >
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Volume:
@@ -30,9 +35,12 @@
           :title="volumeTitle"
           :range="volumeRange"
         />  
-        <apply-btn 
-          :title="volumeTitle"
-        />
+        <div class="bottom">
+          <apply-btn 
+            :title="volumeTitle"
+            @close="$refs.menu.save()"
+          />
+        </div>
       </v-list>
     </v-menu>
   </div>

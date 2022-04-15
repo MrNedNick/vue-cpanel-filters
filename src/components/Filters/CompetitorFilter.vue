@@ -1,6 +1,11 @@
 <template>
   <div class="menu-container">
-    <v-menu offset-y :close-on-content-click="false" class="menu">
+    <v-menu
+      :close-on-content-click="false"
+      class="menu"
+      ref="menu"
+      offset-y
+    >
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Comp:
@@ -28,9 +33,12 @@
           :range="competitorRange"
           :title="competitorTitle"
         />
-        <apply-btn 
-          :title="this.competitorTitle"
-        />
+        <div class="bottom">
+          <apply-btn 
+            :title="this.competitorTitle"
+            @close="$refs.menu.save()"
+          />
+        </div>
       </v-list>
     </v-menu>
   </div>

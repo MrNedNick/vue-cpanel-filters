@@ -1,6 +1,11 @@
 <template>
   <div class="menu-container">
-    <v-menu offset-y :close-on-content-click="false" class="menu">
+    <v-menu
+      :close-on-content-click="false"
+      class="menu"
+      ref="menu"
+      offset-y
+    >
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Word Count

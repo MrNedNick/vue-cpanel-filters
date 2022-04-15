@@ -33,10 +33,12 @@
           :range="positionRange"
           :title="positionTitle"
         />
-        <apply-btn 
-          :title="positionTitle" 
-          @close="$refs.menu.save()"
-        />
+        <div class="bottom">
+          <apply-btn 
+            :title="positionTitle" 
+            @close="$refs.menu.save()"
+          />
+        </div>
       </v-list>
     </v-menu>
   </div>

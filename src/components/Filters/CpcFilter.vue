@@ -24,38 +24,10 @@
             />
           </v-radio-group>
         </v-list-item>
-        <v-divider />
-        <div class="custom-section ml-2 mr-2">
-          <v-container>
-            <div class="flex">
-              <div>From</div>
-              <v-text-field
-                class="custom-textfield"
-                v-model="cpcRange.from"
-                :disabled="isDisabled()"
-                append-icon="mdi-currency-eur"
-                value="from"
-                outlined
-                placeholder="0"
-              />
-            </div>
-          </v-container>
-          <div class="custom-line">-</div>
-          <v-container>
-            <div class="flex">
-              <div>To*</div>
-              <v-text-field
-                class="custom-textfield"
-                v-model="cpcRange.to"
-                :disabled="isDisabled()"
-                outlined
-                append-icon="mdi-currency-eur"
-                placeholder="0"
-              />
-            </div>
-          </v-container>
-        </div>
-        <div class="section-label">*Max. value is unlimited</div>
+        <custom-section
+          :range="cpcRange"
+          :title="cpcTitle"
+        />
         <apply-btn 
           :title="this.cpcTitle"
         />
@@ -66,13 +38,9 @@
 
 <script>
 import ApplyBtn from '../Shared/ApplyBtn.vue';
+import CustomSection from '../Shared/CustomSection.vue';
 export default {
-  components: { ApplyBtn },
-  methods: {
-    isDisabled() {
-      return this.cpcTitle !== "custom";
-    },
-  },
+  components: { ApplyBtn, CustomSection },
   data: () => ({
     cpcTitle: "",
     cpcRange: { from: "", to: "" },

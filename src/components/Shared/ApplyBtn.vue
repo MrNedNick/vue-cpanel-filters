@@ -3,6 +3,7 @@
     <v-btn
       :disabled="isDisabled()"
       class="apply-btn"
+      @click="closeMenu"
     > 
       Apply 
     </v-btn>
@@ -16,6 +17,9 @@ export default {
     isDisabled() {
       return this.title !== "custom";
     },
+    closeMenu() {
+      this.$emit('close')
+    }
   },
 };
 </script>

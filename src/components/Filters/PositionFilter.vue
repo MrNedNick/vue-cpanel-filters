@@ -1,6 +1,11 @@
 <template>
   <div class="menu-container">
-    <v-menu offset-y :close-on-content-click="false" class="menu">
+    <v-menu
+      :close-on-content-click="false"
+      class="menu"
+      ref="menu"
+      offset-y
+    >
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Pos:
@@ -19,19 +24,19 @@
           @update-title="update"
         />
         <v-divider />
-        <v-list-item>
-          <v-radio-group v-model="positionTitle">
-            <v-radio
-              class="radio"
-              v-for="btn in positionRadioBtns"
-              :key="btn.id"
-              :label="btn.label"
-              :value="btn.value"
-            />
-          </v-radio-group>
-        </v-list-item>
-        <custom-section :range="positionRange" :title="positionTitle" />
-        <apply-btn :title="positionTitle" />
+        <radio-select
+          :items="positionRadioBtns"
+          :title="positionTitle"
+          @update-title="update"
+        />
+        <custom-section
+          :range="positionRange"
+          :title="positionTitle"
+        />
+        <apply-btn 
+          :title="positionTitle" 
+          @close="$refs.menu.save()"
+        />
       </v-list>
     </v-menu>
   </div>

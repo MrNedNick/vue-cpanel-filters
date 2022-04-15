@@ -6,7 +6,7 @@
       ref="menu"
       offset-y
     > -->
-      <!-- <template v-slot:activator="{ on, attrs }">
+    <!-- <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Word Count
           <v-icon>mdi-chevron-down</v-icon>
@@ -14,20 +14,18 @@
       </template>
       <v-list class="menu">
         <v-list-item> -->
-          <!-- <div class="checkbox-container">
+    <!-- <div class="checkbox-container">
             <v-checkbox class="pt-3 radio" label="1" />
             <v-checkbox class="checkbox radio" label="2" />
             <v-checkbox class="checkbox radio" label="3" />
             <v-checkbox class="checkbox radio" label="4-10" />
             <v-checkbox class="checkbox radio" label="Custom" />
           </div> -->
-          <v-select 
-            v-model="value" 
-            :items="items" 
-            label="Select Item" 
-            multiple
-                  class="select"
-
+    <v-select
+      v-model="value"
+      :items="items"
+      multiple
+      class="select"
       clearable
       offset-y
       outlined
@@ -41,22 +39,22 @@
         maxHeight: 700,
         maxWidth: 200,
       }"
-          >
-            <template v-slot:selection="{ item, index }">
-              <v-chip v-if="index === 0">
-                <span>{{ item }}</span>
-              </v-chip>
-              <span v-if="index === 1" class="grey--text text-caption">
-                (+{{ value.length - 1 }} others)
-              </span>
-            </template>
-            <template v-slot:append-item>
-              <custom-section></custom-section>
-              <apply-btn></apply-btn>
-            </template>
-          </v-select>
-          
-        <!-- </v-list-item>
+    >
+      <template v-slot:selection="{ index }">
+        <v-chip v-if="index === 0">
+          <span>{{ value.length - 1 }}</span>
+        </v-chip>
+        <!-- <span v-if="index === 1" class="grey--text text-caption">
+          (+{{ value.length - 1 }} others)
+        </span> -->
+      </template>
+      <template v-slot:append-item>
+        <!-- <custom-section></custom-section>
+        <apply-btn></apply-btn> -->
+      </template>
+    </v-select>
+
+    <!-- </v-list-item>
         <v-divider />
         <div class="custom-section ml-2 mr-2">
           <v-container>
@@ -87,14 +85,14 @@
         <div class="bottom">
           <v-btn class="apply-btn" :disabled="disabled"> Apply </v-btn>
         </div> -->
-      <!-- </v-list>
+    <!-- </v-list>
     </v-menu> -->
   </div>
 </template>
 
 <script>
-import ApplyBtn from '../Shared/ApplyBtn.vue';
-import CustomSection from '../Shared/CustomSection.vue';
+import ApplyBtn from "../Shared/ApplyBtn.vue";
+import CustomSection from "../Shared/CustomSection.vue";
 export default {
   components: { ApplyBtn, CustomSection },
   data: () => ({

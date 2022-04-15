@@ -34,7 +34,11 @@
           </div>
         </v-list-item>
         <v-list-item>
-          <v-btn class="apply-btn groupings-apply-btn"> Apply </v-btn>
+          <apply-btn 
+            class="groupings-apply-btn"
+            :title="'custom'"
+            @close="$refs.menu.save()"
+          />
         </v-list-item>
       </v-list>
     </v-menu>
@@ -42,7 +46,11 @@
 </template>
 
 <script>
+import ApplyBtn from '../Shared/ApplyBtn.vue';
 export default {
+  components: {
+    ApplyBtn
+  },
   data() {
     return {
       groupingsEqualSelect: "Equal to",

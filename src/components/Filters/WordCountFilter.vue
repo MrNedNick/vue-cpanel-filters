@@ -40,18 +40,21 @@
         maxWidth: 200,
       }"
     >
-      <template v-slot:prepend-inner class="input-title"> Word count </template>
+      <template v-slot:prepend-inner class="input-title">Word count</template>
       <template v-slot:selection="{ index }">
         <v-chip v-if="index === 0">
           <span>{{ value.length }}</span>
         </v-chip>
       </template>
       <template v-slot:append-item>
-        <custom-section></custom-section>
+        <custom-section
+          :range="wordRange"
+          :title="'custom'"
+        />
         <apply-btn
-          class="ma-4"
           :title="'custom'"
           @close="$refs.menu.save()"
+          class="ma-4"
         />
       </template>
     </v-select>
@@ -100,8 +103,34 @@ export default {
   data: () => ({
     items: ["1", "2", "3", "4-10", "Custom"],
     value: [],
-    selectedItem: null,
-    disabled: false,
+    wordRange: { from: "", to: "" },
+    wordItems: [
+        {
+          id: 1,
+          label: "1",
+          value: "1",
+        },
+        {
+          id: 2,
+          label: "2",
+          value: "2",
+        },
+        {
+          id: 3,
+          label: "3",
+          value: "3",
+        },
+        {
+          id: 4,
+          label: "4-10",
+          value: "4-10",
+        },
+        {
+          id: 5,
+          label: "Custom",
+          value: "custom",
+        },
+    ]
   }),
 };
 </script>
@@ -117,7 +146,6 @@ export default {
   align-items: center;
 }
 .v-input__prepend-inner {
-  width: 145px;
+  width: 146px;
 }
-
 </style>

@@ -10,7 +10,12 @@
       <competitor-filter />
       <!-- <alternative-volume-filter /> -->
       <div class="submit-container">
-        <v-btn @click="submit()" class="submit-btn apply-btn mt-4"> SUBMIT </v-btn>
+        <v-btn
+          @click="submit()"
+          class="submit-btn apply-btn mt-4"
+        >
+          SUBMIT
+        </v-btn>
       </div>
     </div>
   </div>
@@ -35,6 +40,18 @@ export default {
     WordCountFilter,
     CompetitorFilter,
     AlternativeVolumeFilter,
+  },
+  data: () => ({
+    advancedFilter: "",
+    postionFilter: "",
+    volumeFilter: "",
+    cpcFilter: "",
+    wordCountFilter: "",
+    groupingsFilter: "",
+    competitorFilter: "",
+  }),
+  methods: {
+    submit() {},
   },
 };
 </script>
@@ -134,7 +151,7 @@ body {
   margin: 25px;
   margin-left: 280px;
 }
-.submit-btn{
+.submit-btn {
   width: 200px;
 }
 </style>

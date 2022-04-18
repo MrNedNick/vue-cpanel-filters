@@ -10,11 +10,6 @@ export default {
   components: {
     AllFilters,
   },
-  methods: {
-    submit () {
-
-    }
-  }
 };
 </script>
 

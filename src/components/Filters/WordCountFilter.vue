@@ -144,4 +144,7 @@ export default {
 .v-input__prepend-inner {
   width: 147px;
 }
+.v-text-field fieldset, .v-text-field .v-input__control {
+     height: 45px;
+}
 </style>

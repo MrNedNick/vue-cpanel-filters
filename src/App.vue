@@ -1,9 +1,6 @@
 <template>
   <v-app id="inspire">
     <all-filters />
-    <div class="submit-container">
-      <v-btn class="apply-btn">SUBMIT</v-btn>
-    </div>
   </v-app>
 </template>
 
@@ -13,13 +10,14 @@ export default {
   components: {
     AllFilters,
   },
+  methods: {
+    submit () {
+
+    }
+  }
 };
 </script>
 
-<style scoped>
-.submit-container {
-  margin:0px auto;
-}
-</style>
+
 
 

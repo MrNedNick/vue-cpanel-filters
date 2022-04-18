@@ -2,20 +2,23 @@
   <div class="wrapper">
     <div class="container">
       <advanced-filter />
-      <position-filter/>
+      <position-filter />
       <volume-filter />
       <cpc-filter />
       <word-count-filter />
       <groupings-filter />
       <competitor-filter />
-      <!-- <alternative-volume-filter /> -->     
+      <!-- <alternative-volume-filter /> -->
+      <div class="submit-container">
+        <v-btn @click="submit()" class="submit-btn apply-btn mt-4"> SUBMIT </v-btn>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import AdvancedFilter from "./Filters/AdvancedFilter.vue";
-import AlternativeVolumeFilter from './Filters/AlternativeVolumeFilter.vue';
+import AlternativeVolumeFilter from "./Filters/AlternativeVolumeFilter.vue";
 import CompetitorFilter from "./Filters/CompetitorFilter.vue";
 import CpcFilter from "./Filters/CpcFilter.vue";
 import GroupingsFilter from "./Filters/GroupingsFilter.vue";
@@ -49,6 +52,7 @@ body {
   background-color: #f5f6f7;
   width: 800px;
   min-height: 300px;
+  margin-top: 100px;
 }
 .container {
   display: flex;
@@ -63,7 +67,7 @@ body {
   height: 40px !important;
 }
 .main-btn.v-btn:not(.v-btn--round).v-size--default {
-    width: 200px;
+  width: 200px;
 }
 .menu {
   max-width: 201px;
@@ -125,5 +129,12 @@ body {
 .v-application {
   font-family: "Source Sans Pro";
   line-height: 1.5;
+}
+.submit-container {
+  margin: 25px;
+  margin-left: 280px;
+}
+.submit-btn{
+  width: 200px;
 }
 </style>

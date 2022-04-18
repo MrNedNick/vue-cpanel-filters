@@ -129,7 +129,8 @@ export default {
     padding: 0 8px 0 !important;
     width: 160px;
     height: 40px;
-    background: rgba(26, 44, 89, 0.04);
+    background: white;
+    // background: rgba(26, 44, 89, 0.04);
   }
 }
 .advanced-apply-btn {

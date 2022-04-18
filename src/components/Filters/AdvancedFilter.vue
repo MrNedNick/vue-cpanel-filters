@@ -84,7 +84,6 @@ export default {
 }
 .advanced-container {
   display: flex;
-
 }
 .selectBtn {
   width: 160px;

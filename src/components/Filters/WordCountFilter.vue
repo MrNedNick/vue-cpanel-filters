@@ -21,47 +21,6 @@
             <v-checkbox class="checkbox radio" label="4-10" />
             <v-checkbox class="checkbox radio" label="Custom" />
           </div> -->
-    <v-select
-      ref="select"
-      v-model="value"
-      :items="items"
-      multiple
-      class="select"
-      clearable
-      offset-y
-      outlined
-      append-icon="mdi-chevron-down"
-      color="#033"
-      background-color="white"
-      deletable-chips
-      :menu-props="{
-        top: false,
-        offsetY: true,
-        maxHeight: 700,
-        maxWidth: 200,
-      }"
-    >
-      <template v-slot:prepend-inner class="input-title">
-        Word count
-      </template>
-      <template v-slot:selection="{ index }">
-        <v-chip v-if="index === 0">
-          <span>{{ value.length }}</span>
-        </v-chip>
-      </template>
-      <template v-slot:append-item>
-        <custom-section
-          :range="wordRange"
-          :title="isDisabled()"
-        />
-        <apply-btn
-          :title="isDisabled()"
-          @close="$refs.select.blur()"
-          class="ma-4"
-        />
-      </template>
-    </v-select>
-
     <!-- </v-list-item>
         <v-divider />
         <div class="custom-section ml-2 mr-2">
@@ -95,6 +54,41 @@
         </div> -->
     <!-- </v-list>
     </v-menu> -->
+    <v-select
+      ref="select"
+      v-model="value"
+      :items="items"
+      multiple
+      class="select"
+      clearable
+      offset-y
+      outlined
+      append-icon="mdi-chevron-down"
+      color="#033"
+      background-color="white"
+      deletable-chips
+      :menu-props="{
+        top: false,
+        offsetY: true,
+        maxHeight: 700,
+        maxWidth: 200,
+      }"
+    >
+      <template v-slot:prepend-inner class="input-title"> Word count </template>
+      <template v-slot:selection="{ index }">
+        <v-chip v-if="index === 0">
+          <span>{{ value.length }}</span>
+        </v-chip>
+      </template>
+      <template v-slot:append-item>
+        <custom-section :range="wordRange" :title="isDisabled()" />
+        <apply-btn
+          :title="isDisabled()"
+          @close="$refs.select.blur()"
+          class="ma-4"
+        />
+      </template>
+    </v-select>
   </div>
 </template>
 
@@ -133,33 +127,6 @@ export default {
     ],
     value: [],
     wordRange: { from: "", to: "" },
-    wordItems: [
-      {
-        id: 1,
-        label: "1",
-        value: "1",
-      },
-      {
-        id: 2,
-        label: "2",
-        value: "2",
-      },
-      {
-        id: 3,
-        label: "3",
-        value: "3",
-      },
-      {
-        id: 4,
-        label: "4-10",
-        value: "4-10",
-      },
-      {
-        id: 5,
-        label: "Custom",
-        value: "custom",
-      },
-    ],
   }),
 };
 </script>

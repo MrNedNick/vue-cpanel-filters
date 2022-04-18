@@ -26,7 +26,8 @@
         </div>
       </v-container>
     </div>
-    <div class="section-label">*Max. value is unlimited</div>
+    <div class="section-label mb-4">*Max. value is unlimited</div>
+    <v-divider />
   </div>
 </template>
 
@@ -45,4 +46,7 @@ export default {
 </script>
 
 <style>
+.custom-section{
+  height: 120px;
+}
 </style>

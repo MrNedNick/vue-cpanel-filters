@@ -83,6 +83,7 @@ body {
   display: flex;
   height: 40px !important;
 }
+
 .main-btn.v-btn:not(.v-btn--round).v-size--default {
   width: 200px;
 }
@@ -93,7 +94,6 @@ body {
 .menu .v-list-item {
   padding: 0;
 }
-
 .radio {
   margin-top: 0px;
   padding: 8px 0px 8px 12px;
@@ -130,7 +130,11 @@ body {
 .v-text-field--outlined > .v-input__control > .v-input__slot {
   min-height: 0px !important;
   max-width: 200px !important;
+  height: 50px;
   border-radius: 6px;
+}
+.v-text-field fieldset, .v-text-field .v-input__control {
+    /* height: 45px; */
 }
 // Select Input Title
 .select .v-text-field--full-width .v-input__prepend-inner,

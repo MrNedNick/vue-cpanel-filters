@@ -49,6 +49,7 @@ import ApplyBtn from "../Shared/ApplyBtn.vue";
 import CustomSection from "../Shared/CustomSection.vue";
 import RadioSelect from "../Shared/RadioSelect.vue";
 export default {
+  props: ["data"],
   components: { ApplyBtn, CustomSection, RadioSelect },
   methods: {
     update(title) {

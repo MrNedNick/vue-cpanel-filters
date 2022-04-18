@@ -1,7 +1,7 @@
 <template>
     <v-btn
       :disabled="isDisabled()"
-      class="apply-btn"
+      class="apply-btn mt-4 mb-4"
       @click="closeMenu"
     > 
       Apply 
@@ -46,7 +46,5 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 36px;
-  margin-bottom: 16px;
 }
 </style>

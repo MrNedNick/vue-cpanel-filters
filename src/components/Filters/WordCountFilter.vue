@@ -49,10 +49,10 @@
       <template v-slot:append-item>
         <custom-section
           :range="wordRange"
-          :title="'custom'"
+          :title="isDisabled()"
         />
         <apply-btn
-          :title="'custom'"
+          :title="isDisabled()"
           @close="$refs.menu.save()"
           class="ma-4"
         />
@@ -100,8 +100,33 @@ import ApplyBtn from "../Shared/ApplyBtn.vue";
 import CustomSection from "../Shared/CustomSection.vue";
 export default {
   components: { ApplyBtn, CustomSection },
+  methods: {
+    isDisabled() {
+      if (this.value.includes("custom")) {return "custom"}
+    }
+  },
   data: () => ({
-    items: ["1", "2", "3", "4-10", "Custom"],
+    items: [
+      {
+        text: '1',
+        value: '1',
+      },
+      {
+        text: '2',
+        value: '2',
+      },
+      {
+        text: '3',
+        value: '3',
+      },
+      {
+        text: '4-10',
+        value: '4-10',
+      },
+      {
+        text: 'Custom',
+        value: 'custom',
+      }],
     value: [],
     wordRange: { from: "", to: "" },
     wordItems: [

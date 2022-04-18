@@ -142,6 +142,6 @@ export default {
   align-items: center;
 }
 .v-input__prepend-inner {
-  width: 146px;
+  width: 147px;
 }
 </style>

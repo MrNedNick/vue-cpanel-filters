@@ -9,9 +9,6 @@
       <groupings-filter />
       <competitor-filter />
       <!-- <alternative-volume-filter /> -->     
-      <div class="menu-container"> 
-        <v-btn class="apply-btn">SUBMIT</v-btn>
-      </div>
     </div>
   </div>
 </template>
@@ -36,8 +33,6 @@ export default {
     CompetitorFilter,
     AlternativeVolumeFilter,
   },
-
-  methods: {},
 };
 </script>
 
@@ -50,8 +45,10 @@ body {
   color: #05122d;
 }
 .wrapper {
+  margin: 0px auto;
   background-color: #f5f6f7;
-  min-height: 1500px;
+  width: 800px;
+  min-height: 300px;
 }
 .container {
   display: flex;
@@ -59,13 +56,15 @@ body {
 }
 .menu-container {
   margin-left: 40px;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 .advanced-container {
   display: flex;
   height: 40px !important;
 }
-
+.main-btn.v-btn:not(.v-btn--round).v-size--default {
+    width: 200px;
+}
 .menu {
   max-width: 201px;
   margin-top: -24px;
@@ -112,8 +111,6 @@ body {
   max-width: 200px !important;
   border-radius: 6px;
 }
-// apply btn
-
 // Select Input Title
 .select .v-text-field--full-width .v-input__prepend-inner,
 .v-text-field--enclosed .v-input__prepend-inner {

@@ -22,6 +22,7 @@
             <v-checkbox class="checkbox radio" label="Custom" />
           </div> -->
     <v-select
+      ref="select"
       v-model="value"
       :items="items"
       multiple
@@ -40,7 +41,9 @@
         maxWidth: 200,
       }"
     >
-      <template v-slot:prepend-inner class="input-title">Word count</template>
+      <template v-slot:prepend-inner class="input-title">
+        Word count
+      </template>
       <template v-slot:selection="{ index }">
         <v-chip v-if="index === 0">
           <span>{{ value.length }}</span>
@@ -53,7 +56,7 @@
         />
         <apply-btn
           :title="isDisabled()"
-          @close="$refs.menu.save()"
+          @close="$refs.select.blur()"
           class="ma-4"
         />
       </template>
@@ -102,60 +105,61 @@ export default {
   components: { ApplyBtn, CustomSection },
   methods: {
     isDisabled() {
-      if (this.value.includes("custom")) {return "custom"}
-    }
+      return this.value.includes("custom") ? "custom" : "";
+    },
   },
   data: () => ({
     items: [
       {
-        text: '1',
-        value: '1',
+        text: "1",
+        value: "1",
       },
       {
-        text: '2',
-        value: '2',
+        text: "2",
+        value: "2",
       },
       {
-        text: '3',
-        value: '3',
+        text: "3",
+        value: "3",
       },
       {
-        text: '4-10',
-        value: '4-10',
+        text: "4-10",
+        value: "4-10",
       },
       {
-        text: 'Custom',
-        value: 'custom',
-      }],
+        text: "Custom",
+        value: "custom",
+      },
+    ],
     value: [],
     wordRange: { from: "", to: "" },
     wordItems: [
-        {
-          id: 1,
-          label: "1",
-          value: "1",
-        },
-        {
-          id: 2,
-          label: "2",
-          value: "2",
-        },
-        {
-          id: 3,
-          label: "3",
-          value: "3",
-        },
-        {
-          id: 4,
-          label: "4-10",
-          value: "4-10",
-        },
-        {
-          id: 5,
-          label: "Custom",
-          value: "custom",
-        },
-    ]
+      {
+        id: 1,
+        label: "1",
+        value: "1",
+      },
+      {
+        id: 2,
+        label: "2",
+        value: "2",
+      },
+      {
+        id: 3,
+        label: "3",
+        value: "3",
+      },
+      {
+        id: 4,
+        label: "4-10",
+        value: "4-10",
+      },
+      {
+        id: 5,
+        label: "Custom",
+        value: "custom",
+      },
+    ],
   }),
 };
 </script>

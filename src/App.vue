@@ -3,14 +3,13 @@
     <div class="wrapper">
       <div class="container">
         <advanced-filter />
-        <position-filter>djfdlsfj</position-filter>
+        <position-filter/>
         <volume-filter />
         <cpc-filter />
         <word-count-filter />
         <groupings-filter />
         <competitor-filter />
-        <alternative-volume-filter />
-        
+        <!-- <alternative-volume-filter /> -->      
       </div>
     </div>
   </v-app>

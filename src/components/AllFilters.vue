@@ -1,46 +1,45 @@
 <template>
   <div class="wrapper">
-    <!-- <v-text-field
-      class="internet-field"
-      outlined
-      label="Internet"
-      hide-details
-      clearable
-      background-color="rgba(26, 44, 89, 0.04)"
-    >
-      <template v-slot:prepend-inner>
-        <v-icon>
-          mdi-magnify
-        </v-icon>
-      </template>
-    </v-text-field> -->
-    <internet-field></internet-field>
-    <div class="filter-wrapper">
-      <position-filter />
-      <volume-filter />
-      <cpc-filter />
-      <competitor-filter />
-      <advanced-filter />
-      <groupings-filter />
-      <word-count-filter />
-    </div>
-    <div class="btns-wrapper">
-      <v-btn @click="submit()" class="apply-btn" width="83" height="40">
-        Apply
-      </v-btn>
+    <div class="top-section">
+      <internet-field />
       <v-btn
-        class="clear-btn ml-4"
-        color="#3366FF"
-        outlined
-        width="98"
+        class="filter-btn ml-4"
+        elevation="0"
         height="40"
+        @click="showFilters()"
       >
-        Clear All
+        <v-icon color="#3366FF">mdi-filter-variant</v-icon>
+        Filter
       </v-btn>
-      <v-btn class="save-all-btn ml-4" href="#" elevation="0" height="40">
-        <v-icon color="#3366FF" class="advanced-btn_icon">mdi-plus</v-icon>
-        Save Filter
-      </v-btn>
+    </div>
+    <div v-if="isShown" class="filter-section">
+      <div class="filter-wrapper">
+        <position-filter />
+        <volume-filter />
+        <cpc-filter />
+        <competitor-filter />
+        <advanced-filter />
+        <groupings-filter />
+        <word-count-filter />
+      </div>
+      <div class="btns-wrapper">
+        <v-btn @click="submit()" class="apply-btn" width="83" height="40">
+          Apply
+        </v-btn>
+        <v-btn
+          class="clear-btn ml-4"
+          color="#3366FF"
+          outlined
+          width="98"
+          height="40"
+        >
+          Clear All
+        </v-btn>
+        <v-btn class="save-all-btn ml-4" href="#" elevation="0" height="40">
+          <v-icon color="#3366FF" class="advanced-btn_icon">mdi-plus</v-icon>
+          Save Filter
+        </v-btn>
+      </div>
     </div>
   </div>
 </template>
@@ -54,7 +53,7 @@ import GroupingsFilter from "./Filters/GroupingsFilter.vue";
 import PositionFilter from "./Filters/PositionFilter.vue";
 import VolumeFilter from "./Filters/VolumeFilter.vue";
 import WordCountFilter from "./Filters/WordCountFilter.vue";
-import InternetField from './Shared/InternetField.vue';
+import InternetField from "./Shared/InternetField.vue";
 export default {
   components: {
     AdvancedFilter,
@@ -68,6 +67,7 @@ export default {
     InternetField,
   },
   data: () => ({
+    isShown: false,
     advancedFilter: "",
     postionFilter: "",
     volumeFilter: "",
@@ -77,6 +77,9 @@ export default {
     competitorFilter: "",
   }),
   methods: {
+    showFilters(){
+      this.isShown = !this.isShown
+    },
     submit() {},
   },
 };
@@ -100,6 +103,10 @@ body {
 .filter-wrapper {
   display: flex;
   // flex-wrap: wrap;
+}
+.top-section {
+  display: flex;
+
 }
 .menu-container {
   margin-top: 40px;
@@ -187,7 +194,16 @@ body {
 //     letter-spacing: 0em;
 //   }
 // }
-
+.filter-btn {
+    font-family: "Source Sans Pro";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: none;
+  letter-spacing: 0em;
+  color: #3366FF !important;
+  opacity: 0.8;
+}
 .save-all-btn {
   font-family: "Source Sans Pro";
   font-weight: 600;

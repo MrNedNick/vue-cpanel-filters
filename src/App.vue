@@ -15,7 +15,7 @@ export default {
 
 <style>
 .theme--light.v-application {
-  background-color: #f5f6f7;
+  background-color: #f5f6f7 !important;
 }
 </style>
 

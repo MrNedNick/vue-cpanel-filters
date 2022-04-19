@@ -9,12 +9,32 @@
       <groupings-filter />
       <word-count-filter />
     </div>
-    <div class="submit-container">
-      <v-btn
-        @click="submit()"
+    <div class="btns-wrapper">
+      <v-btn 
+        @click="submit()" 
         class="apply-btn"
+        width="83"
+        height="40"
+      > 
+        Apply 
+      </v-btn>
+      <v-btn
+        class="clear-btn ml-4"
+        color="primary"
+        outlined
+        width="98"
+        height="40"
       >
-        Apply
+        Clear All
+      </v-btn>
+      <v-btn
+        class="save-all-btn ml-4"
+        href="#"
+        elevation="0"
+        height="40"
+      >
+        <v-icon color="#3366FF" class="advanced-btn_icon">mdi-plus</v-icon>
+        Save Filter
       </v-btn>
     </div>
   </div>
@@ -65,7 +85,7 @@ body {
 }
 .wrapper {
   margin: 0px auto;
-  background-color: #bbbbbb;
+  background-color: #f5f6f7;
   width: 1328px;
   min-height: 300px;
   margin-top: 100px;
@@ -149,11 +169,37 @@ body {
   font-family: "Source Sans Pro";
   line-height: 1.5;
 }
-.submit-container {
-  margin: 25px;
-  margin-left: 280px;
-}
 .submit-btn {
   width: 200px;
 }
+// Save Btn
+// .save-btn {
+//   & .v-btn__content {
+//     font-family: "Source Sans Pro";
+//     font-weight: 400;
+//     font-size: 14px;
+//     color: #3366ff;
+//     text-transform: none;
+//     letter-spacing: 0em;
+//   }
+// }
+
+.save-all-btn{
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: none;
+  letter-spacing: 0em;
+  color: #05122D;
+  opacity: 0.8;
+}
+.clear-btn {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: capitalize;
+}
+
 </style>

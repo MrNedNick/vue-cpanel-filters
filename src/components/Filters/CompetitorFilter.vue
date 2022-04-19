@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-container">
+  <div class="menu-container ml-6">
     <v-menu
       :close-on-content-click="false"
       class="menu"

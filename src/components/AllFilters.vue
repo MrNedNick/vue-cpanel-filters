@@ -1,22 +1,21 @@
 <template>
   <div class="wrapper">
-    <div class="container">
-      <advanced-filter />
+    <div class="filter-wrapper">
       <position-filter />
       <volume-filter />
       <cpc-filter />
-      <word-count-filter />
-      <groupings-filter />
       <competitor-filter />
-      <!-- <alternative-volume-filter /> -->
-      <div class="submit-container">
-        <v-btn
-          @click="submit()"
-          class="submit-btn apply-btn mt-4"
-        >
-          SUBMIT
-        </v-btn>
-      </div>
+      <advanced-filter />
+      <groupings-filter />
+      <word-count-filter />
+    </div>
+    <div class="submit-container">
+      <v-btn
+        @click="submit()"
+        class="apply-btn"
+      >
+        Apply
+      </v-btn>
     </div>
   </div>
 </template>
@@ -67,16 +66,15 @@ body {
 .wrapper {
   margin: 0px auto;
   background-color: #f5f6f7;
-  width: 800px;
+  width: 1328px;
   min-height: 300px;
   margin-top: 100px;
 }
-.container {
+.filter-wrapper {
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 }
 .menu-container {
-  margin-left: 40px;
   margin-top: 40px;
 }
 .advanced-container {
@@ -85,7 +83,7 @@ body {
 }
 
 .main-btn.v-btn:not(.v-btn--round).v-size--default {
-  width: 200px;
+  width: 160px;
 }
 .menu {
   max-width: 201px;
@@ -133,9 +131,9 @@ body {
   height: 50px;
   border-radius: 6px;
 }
-.v-text-field fieldset, .v-text-field .v-input__control {
-    /* height: 45px; */
-}
+// .v-text-field fieldset, .v-text-field .v-input__control {
+//     /* height: 45px; */
+// }
 // Select Input Title
 .select .v-text-field--full-width .v-input__prepend-inner,
 .v-text-field--enclosed .v-input__prepend-inner {

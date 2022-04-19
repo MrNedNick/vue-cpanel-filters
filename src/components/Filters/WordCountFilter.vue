@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-container">
+  <div class="menu-container ml-6">
     <!-- <v-menu
       :close-on-content-click="false"
       class="menu"
@@ -142,7 +142,7 @@ export default {
   align-items: center;
 }
 .v-input__prepend-inner {
-  width: 147px;
+  width: 150px;
 }
 .v-select .v-chip {
     margin: 0px;

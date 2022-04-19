@@ -7,7 +7,7 @@
       offset-y
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on" class="main-btn">
+        <v-btn v-bind="attrs" v-on="on" class="main-btn advanced">
           Advanced Filters
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
@@ -161,5 +161,8 @@ export default {
 }
 .advanced-field {
   width: 160px;
+}
+.main-btn.advanced.v-btn:not(.v-btn--round).v-size--default {
+    width: 200px !important;
 }
 </style>

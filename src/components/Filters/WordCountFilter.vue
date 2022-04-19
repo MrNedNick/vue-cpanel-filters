@@ -142,9 +142,12 @@ export default {
   align-items: center;
 }
 .v-input__prepend-inner {
-  width: 150px;
+  width: 200px;
 }
 .v-select .v-chip {
     margin: 0px;
+}
+.select.v-text-field--filled > .v-input__control > .v-input__slot, .v-text-field--full-width > .v-input__control > .v-input__slot, .v-text-field--outlined > .v-input__control > .v-input__slot {
+    max-width: 160px !important;
 }
 </style>

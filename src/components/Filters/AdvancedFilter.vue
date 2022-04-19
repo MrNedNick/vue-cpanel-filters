@@ -6,13 +6,18 @@
       ref="menu"
       offset-y
     >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on" class="main-btn advanced">
+      <template v-slot:activator="{ on, attrs }" >
+        <v-btn
+          v-bind="attrs"
+          v-on="on"
+          class="main-btn advanced"
+          @click="isOpen()"
+        >
           Advanced Filters
-          <v-icon>mdi-chevron-down</v-icon>
+          <v-icon v-bind:class="{ rotate: rotateIcon }">mdi-chevron-down</v-icon>
         </v-btn>
       </template>
-      <v-list class="advanced-menu">
+      <v-list class="advanced-menu" >
         <advanced-item
           v-for="condition in conditions"
           :key="condition.id"
@@ -56,8 +61,12 @@ export default {
     deleteCondition(id) {
       this.conditions = this.conditions.filter((task) => task.id !== id);
     },
+    isOpen() {
+      this.rotateIcon = !this.rotateIcon
+    },
   },
   data: () => ({
+    rotateIcon: false,
     conditions: [{ id: 1 }],
     advancedSelect: "Keyword",
     advancedSelectItems: ["Keyword", "Path"],
@@ -164,5 +173,8 @@ export default {
 }
 .main-btn.advanced.v-btn:not(.v-btn--round).v-size--default {
     width: 200px !important;
+}
+.rotate {
+  transform: rotate(180deg);
 }
 </style>

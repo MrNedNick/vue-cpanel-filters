@@ -65,7 +65,7 @@ body {
 }
 .wrapper {
   margin: 0px auto;
-  background-color: #f5f6f7;
+  background-color: #bbbbbb;
   width: 1328px;
   min-height: 300px;
   margin-top: 100px;

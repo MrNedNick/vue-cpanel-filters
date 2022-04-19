@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app class="app" id="inspire">
     <all-filters />
   </v-app>
 </template>
@@ -13,7 +13,11 @@ export default {
 };
 </script>
 
-
+<style>
+.theme--light.v-application {
+  background-color: #f5f6f7;
+}
+</style>
 
 
 

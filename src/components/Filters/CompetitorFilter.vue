@@ -1,43 +1,24 @@
 <template>
   <div class="menu-container ml-6">
-    <v-menu
-      :close-on-content-click="false"
-      class="menu"
-      ref="menu"
-      offset-y
-    >
+    <v-menu :close-on-content-click="false" class="menu" ref="menu" offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Comp:
           {{
-            competitorTitle !== "custom"
-              ? competitorTitle
-              : `${competitorRange.from} - ${competitorRange.to}`
+            data.title !== "custom" ? data.title : `${data.from} - ${data.to}`
           }}
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
       <v-list class="menu">
-        <v-list-item>
-          <v-radio-group v-model="competitorTitle">
-            <v-radio
-              class="radio"
-              v-for="btn in competitorRadioBtns"
-              :key="btn.id"
-              :label="btn.label"
-              :value="btn.value"
-            />
-          </v-radio-group>
-        </v-list-item>
-        <custom-section
-          :range="competitorRange"
-          :title="competitorTitle"
+        <radio-select
+          :items="competitorRadioBtns"
+          :title="data.title"
+          @update-title="update"
         />
+        <custom-section :title="data.title" :range="data" />
         <div class="bottom">
-          <apply-btn 
-            :title="this.competitorTitle"
-            @close="$refs.menu.save()"
-          />
+          <apply-btn :title="data.title" @close="$refs.menu.save()" />
         </div>
       </v-list>
     </v-menu>
@@ -45,14 +26,18 @@
 </template>
 
 <script>
-import ApplyBtn from '../Shared/ApplyBtn.vue';
-import CustomSection from '../Shared/CustomSection.vue';
+import ApplyBtn from "../Shared/ApplyBtn.vue";
+import CustomSection from "../Shared/CustomSection.vue";
+import RadioSelect from "../Shared/RadioSelect.vue";
 export default {
   props: ["data"],
-  components: { ApplyBtn, CustomSection },
+  components: { ApplyBtn, CustomSection, RadioSelect },
+  methods: {
+    update(title) {
+      this.data.title = title;
+    },
+  },
   data: () => ({
-    competitorTitle: "",
-    competitorRange: { from: "", to: "" },
     competitorRadioBtns: [
       {
         id: 1,

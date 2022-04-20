@@ -19,7 +19,7 @@
         <position-filter :data="position" @updateParent="updateData" />
         <volume-filter :data="volume" @updateParent="updateData" />
         <cpc-filter :data="cpc" @updateParent="updateData" />
-        <competitor-filter @updateParent="updateData" />
+        <competitor-filter :data="competitor" @updateParent="updateData" />
         <advanced-filter @updateParent="updateData" />
         <groupings-filter @updateParent="updateData" />
         <word-count-filter @updateParent="updateData" />
@@ -62,14 +62,14 @@
           Cpc Filter:
           {{ cpc.title === "custom" ? `${cpc.from} - ${cpc.to}` : cpc.title }}
         </span>
-        <!-- <span class="mb-2">
+        <span class="mb-2">
           Competitor Filter:
           {{
             competitor.title === "custom"
               ? `${competitor.from} - ${competitor.to}`
               : competitor.title
           }}
-        </span> -->
+        </span> 
         <!-- <span> Volume Filter: {{ volumeFilter }}</span>
         <span> Cpc Filter: {{ cpcFilter }}</span>
         <span> AdvancedFilter: {{ advancedFilter }}</span> -->

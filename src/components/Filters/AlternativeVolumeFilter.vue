@@ -1,5 +1,46 @@
+
 <template>
   <div class="menu-container">
+    <v-menu
+      :close-on-content-click="false"
+      class="menu"
+      ref="menu"
+      offset-y
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn v-bind="attrs" v-on="on" class="main-btn">
+          Pos:
+
+          <v-icon>mdi-chevron-down</v-icon>
+        </v-btn>
+      </template>
+      <v-list class="menu">
+        <radio-select
+          :items="positionRadioBtnsTop"
+          :title="positionTitle"
+          @update-title="update"
+        />
+        <v-divider />
+        <radio-select
+          :items="positionRadioBtns"
+          :title="positionTitle"
+          @update-title="update"
+        />
+        <custom-section
+          :range="positionRange"
+          :title="positionTitle"
+        />
+        <div class="bottom">
+          <apply-btn 
+            :title="positionTitle" 
+            @close="$refs.menu.save()"
+          />
+        </div>
+      </v-list>
+    </v-menu>
+  </div>
+</template>
+  <!-- <div class="menu-container">
     <div class="select-wrapper">
       <v-select
         class="select"
@@ -53,7 +94,7 @@
         </template>
       </v-select>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>

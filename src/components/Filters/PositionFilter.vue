@@ -10,9 +10,9 @@
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Pos:
           {{
-            positionTitle !== "custom"
-              ? positionTitle
-              : `${positionRange.from} - ${positionRange.to}`
+            data.title !== "custom"
+              ? data.title
+              : `${data.from} - ${data.to}`
           }}
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
@@ -57,6 +57,11 @@ export default {
     },
   },
   data: () => ({
+    position: {
+      title: "",
+      from: "",
+      to: ""
+    },
     positionTitle: "",
     positionRange: { from: "", to: "" },
     positionRadioBtnsTop: [

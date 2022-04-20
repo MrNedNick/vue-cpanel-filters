@@ -12,22 +12,20 @@
         Filter
       </v-btn>
     </div>
-    <div v-if='true' class="filter-section">
+    <div v-if="true" class="filter-section">
       <!-- <div v-if="isShown" class="filter-section"> -->
       <div class="filter-wrapper">
         <alternative-volume-filter></alternative-volume-filter>
-        <position-filter @updateParent="updateData"/>
+        <position-filter :data="position" @updateParent="updateData" />
         <volume-filter @updateParent="updateData" />
-        <cpc-filter :title="cpcFilter" @updateParent="updateCpc"/>
-        <competitor-filter @updateParent="updateData"/>
-        <advanced-filter @updateParent="updateData"/>
-        <groupings-filter @updateParent="updateData"/>
-        <word-count-filter @updateParent="updateData"/>
+        <cpc-filter :title="cpcFilter" @updateParent="updateCpc" />
+        <competitor-filter @updateParent="updateData" />
+        <advanced-filter @updateParent="updateData" />
+        <groupings-filter @updateParent="updateData" />
+        <word-count-filter @updateParent="updateData" />
       </div>
       <div class="btns-wrapper">
-        <v-btn  class="apply-btn" width="83" height="40">
-          Apply
-        </v-btn>
+        <v-btn class="apply-btn" width="83" height="40"> Apply </v-btn>
         <v-btn
           class="clear-btn ml-4"
           color="#3366FF"
@@ -79,6 +77,11 @@ export default {
     InternetField,
   },
   data: () => ({
+    position: {
+      title: "",
+      from: "",
+      to: "",
+    },
     isShown: false,
 
     advancedFilter: "",
@@ -97,11 +100,11 @@ export default {
       this.volumeFilter = data;
     },
     updateCpc(data) {
-      this.cpcFilter = data
+      this.cpcFilter = data;
     },
     clearFilters() {
-      this.volumeFilter = ''
-    }
+      this.volumeFilter = "";
+    },
   },
 };
 </script>

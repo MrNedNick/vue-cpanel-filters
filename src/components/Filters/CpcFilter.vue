@@ -37,30 +37,32 @@ export default {
       this.data.title = title;
     },
   },
-  data: () => ({
-    cpcRadioBtns: [
-      {
-        id: 1,
-        label: "0-0.50 €",
-        value: "0-0.50 €",
-      },
-      {
-        id: 2,
-        label: "0.51-2.00 €",
-        value: "0.51-2.00 €",
-      },
-      {
-        id: 3,
-        label: "2.01-5.00 €",
-        value: "2.01-5.00 €",
-      },
-      {
-        id: 4,
-        label: "Custom",
-        value: "custom",
-      },
-    ],
-  }),
+  data() {
+    return {
+      cpcRadioBtns: [
+        {
+          id: 1,
+          label: "0-0.50 €",
+          value: "0-0.50 €",
+        },
+        {
+          id: 2,
+          label: "0.51-2.00 €",
+          value: "0.51-2.00 €",
+        },
+        {
+          id: 3,
+          label: "2.01-5.00 €",
+          value: "2.01-5.00 €",
+        },
+        {
+          id: 4,
+          label: "Custom",
+          value: "custom",
+        },
+      ],
+    };
+  },
   // computed: {
   //   changeTitle() {
   //     return this.cpcTitle

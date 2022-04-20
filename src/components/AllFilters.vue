@@ -60,7 +60,7 @@ import GroupingsFilter from "./Filters/GroupingsFilter.vue";
 import PositionFilter from "./Filters/PositionFilter.vue";
 import VolumeFilter from "./Filters/VolumeFilter.vue";
 import WordCountFilter from "./Filters/WordCountFilter.vue";
-import DataTable from './Shared/DataTable.vue';
+import DataTable from "./Shared/DataTable.vue";
 import InternetField from "./Shared/InternetField.vue";
 export default {
   components: {
@@ -73,31 +73,33 @@ export default {
     CompetitorFilter,
     AlternativeVolumeFilter,
     InternetField,
-    DataTable
+    DataTable,
   },
-  data: () => ({
-    isShown: false,
-    position: {
-      title: "",
-      from: "",
-      to: "",
-    },
-    volume: {
-      title: "",
-      from: "",
-      to: "",
-    },
-    cpc: {
-      title: "",
-      from: "",
-      to: "",
-    },
-    competitor: {
-      title: "",
-      from: "",
-      to: "",
-    },
-  }),
+  data() {
+    return {
+      isShown: false,
+      position: {
+        title: "",
+        from: "",
+        to: "",
+      },
+      volume: {
+        title: "",
+        from: "",
+        to: "",
+      },
+      cpc: {
+        title: "",
+        from: "",
+        to: "",
+      },
+      competitor: {
+        title: "",
+        from: "",
+        to: "",
+      },
+    };
+  },
   methods: {
     showFilters() {
       this.isShown = !this.isShown;
@@ -106,21 +108,21 @@ export default {
       this.volumeFilter = data;
     },
     clearFilters() {
-       this.position.title = ""
-       this.position.from = ""
-       this.position.to = ""
+      this.position.title = "";
+      this.position.from = "";
+      this.position.to = "";
 
-       this.volume.title = ""
-       this.volume.from = ""
-       this.volume.to = ""
+      this.volume.title = "";
+      this.volume.from = "";
+      this.volume.to = "";
 
-       this.cpc.title = ""
-       this.cpc.from = ""
-       this.cpc.to = ""
+      this.cpc.title = "";
+      this.cpc.from = "";
+      this.cpc.to = "";
 
-       this.competitor.title = ""
-       this.competitor.from = ""
-       this.competitor.to = ""
+      this.competitor.title = "";
+      this.competitor.from = "";
+      this.competitor.to = "";
     },
   },
 };

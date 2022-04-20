@@ -1,12 +1,7 @@
 
 <template>
   <div class="menu-container">
-    <v-menu
-      :close-on-content-click="false"
-      class="menu"
-      ref="menu"
-      offset-y
-    >
+    <v-menu :close-on-content-click="false" class="menu" ref="menu" offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Pos:
@@ -26,15 +21,9 @@
           :title="positionTitle"
           @update-title="update"
         />
-        <custom-section
-          :range="positionRange"
-          :title="positionTitle"
-        />
+        <custom-section :range="positionRange" :title="positionTitle" />
         <div class="bottom">
-          <apply-btn 
-            :title="positionTitle" 
-            @close="$refs.menu.save()"
-          />
+          <apply-btn :title="positionTitle" @close="$refs.menu.save()" />
         </div>
       </v-list>
     </v-menu>
@@ -99,34 +88,36 @@
 
 <script>
 export default {
-  data: () => ({
-    items: ["Foo", "Bar", "Fizz", "Buzz"],
-    disabled: false,
-    volumeTitle: "0-10",
-    volumeRange: [{ from: "0" }, { to: "0" }],
-    volumeRadioBtns: [
-      {
-        id: 1,
-        label: "0-10",
-        value: "0-10",
-      },
-      {
-        id: 2,
-        label: "11-100",
-        value: "11-100",
-      },
-      {
-        id: 3,
-        label: "101-1000",
-        value: "101-1000",
-      },
-      {
-        id: 4,
-        label: "1001-5000",
-        value: "1001-5000",
-      },
-    ],
-  }),
+  data() {
+    return {
+      items: ["Foo", "Bar", "Fizz", "Buzz"],
+      disabled: false,
+      volumeTitle: "0-10",
+      volumeRange: [{ from: "0" }, { to: "0" }],
+      volumeRadioBtns: [
+        {
+          id: 1,
+          label: "0-10",
+          value: "0-10",
+        },
+        {
+          id: 2,
+          label: "11-100",
+          value: "11-100",
+        },
+        {
+          id: 3,
+          label: "101-1000",
+          value: "101-1000",
+        },
+        {
+          id: 4,
+          label: "1001-5000",
+          value: "1001-5000",
+        },
+      ],
+    };
+  },
 };
 </script>
 

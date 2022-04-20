@@ -57,22 +57,24 @@ export default {
       this.advancedTextField = "";
     },
   },
-  data: () => ({
-    advancedSelect: "Keyword",
-    advancedSelectItems: ["Keyword", "Path"],
-    advancedKeywordSelect: "Contains",
-    advancedKeywordItems: [
-      "Contains",
-      "Does not contain",
-      "Equal to",
-      "Not equal to",
-      "Starts with",
-      "Does not start with",
-    ],
-    advancedPathSelect: "Starts with",
-    advancedPathItems: ["Starts with", "Does not start with"],
-    advancedTextField: "",
-  }),
+  data() {
+    return {
+      advancedSelect: "Keyword",
+      advancedSelectItems: ["Keyword", "Path"],
+      advancedKeywordSelect: "Contains",
+      advancedKeywordItems: [
+        "Contains",
+        "Does not contain",
+        "Equal to",
+        "Not equal to",
+        "Starts with",
+        "Does not start with",
+      ],
+      advancedPathSelect: "Starts with",
+      advancedPathItems: ["Starts with", "Does not start with"],
+      advancedTextField: "",
+    };
+  },
 };
 </script>
 

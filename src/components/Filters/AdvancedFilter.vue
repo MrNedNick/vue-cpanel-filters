@@ -1,23 +1,15 @@
 <template>
   <div class="menu-container ml-6">
-    <v-menu
-      :close-on-content-click="false"
-      class="menu"
-      ref="menu"
-      offset-y
-    >
-      <template v-slot:activator="{ on, attrs }" >
-        <v-btn
-          v-bind="attrs"
-          v-on="on"
-          class="main-btn advanced"
-
-        >
+    <v-menu :close-on-content-click="false" class="menu" ref="menu" offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn v-bind="attrs" v-on="on" class="main-btn advanced">
           Advanced Filters
-          <v-icon v-bind:class="{ rotate : rotateIcon }">mdi-chevron-down</v-icon>
+          <v-icon v-bind:class="{ rotate: rotateIcon }"
+            >mdi-chevron-down</v-icon
+          >
         </v-btn>
       </template>
-      <v-list class="advanced-menu" >
+      <v-list class="advanced-menu">
         <advanced-item
           v-for="condition in conditions"
           :key="condition.id"
@@ -34,7 +26,7 @@
           </v-btn>
         </v-list-item>
         <v-list-item>
-          <apply-btn 
+          <apply-btn
             class="advanced-apply-btn mt-5 mb-3"
             :title="'custom'"
             @close="$refs.menu.save()"
@@ -48,7 +40,7 @@
 
 <script>
 import AdvancedItem from "../Advanced/AdvancedItem.vue";
-import ApplyBtn from '../Shared/ApplyBtn.vue';
+import ApplyBtn from "../Shared/ApplyBtn.vue";
 export default {
   components: { AdvancedItem, ApplyBtn },
   methods: {
@@ -62,28 +54,30 @@ export default {
       this.conditions = this.conditions.filter((task) => task.id !== id);
     },
     isOpen() {
-      this.rotateIcon = !this.rotateIcon
+      this.rotateIcon = !this.rotateIcon;
     },
   },
-  data: () => ({
-    rotateIcon: true,
-    conditions: [{ id: 1 }],
-    advancedSelect: "Keyword",
-    advancedSelectItems: ["Keyword", "Path"],
-    advancedKeywordSelect: "Contains",
-    advancedKeywordItems: [
-      "Contains",
-      "Does not contain",
-      "Equal to",
-      "Not equal to",
-      "Starts with",
-      "Does not start with",
-    ],
-    advancedPathSelect: "Starts with",
-    advancedPathItems: ["Starts with", "Does not start with"],
-    selectedItem: null,
-    disabled: false,
-  }),
+  data() {
+    return {
+      rotateIcon: true,
+      conditions: [{ id: 1 }],
+      advancedSelect: "Keyword",
+      advancedSelectItems: ["Keyword", "Path"],
+      advancedKeywordSelect: "Contains",
+      advancedKeywordItems: [
+        "Contains",
+        "Does not contain",
+        "Equal to",
+        "Not equal to",
+        "Starts with",
+        "Does not start with",
+      ],
+      advancedPathSelect: "Starts with",
+      advancedPathItems: ["Starts with", "Does not start with"],
+      selectedItem: null,
+      disabled: false,
+    };
+  },
 };
 </script>
 
@@ -172,7 +166,7 @@ export default {
   width: 160px;
 }
 .main-btn.advanced.v-btn:not(.v-btn--round).v-size--default {
-    width: 200px !important;
+  width: 200px !important;
 }
 .icon.rotate {
   transform: rotate(180deg);

@@ -102,32 +102,34 @@ export default {
       return this.value.includes("custom") ? "custom" : "";
     },
   },
-  data: () => ({
-    items: [
-      {
-        text: "1",
-        value: "1",
-      },
-      {
-        text: "2",
-        value: "2",
-      },
-      {
-        text: "3",
-        value: "3",
-      },
-      {
-        text: "4-10",
-        value: "4-10",
-      },
-      {
-        text: "Custom",
-        value: "custom",
-      },
-    ],
-    value: [],
-    wordRange: { from: "", to: "" },
-  }),
+  data() {
+    return {
+      items: [
+        {
+          text: "1",
+          value: "1",
+        },
+        {
+          text: "2",
+          value: "2",
+        },
+        {
+          text: "3",
+          value: "3",
+        },
+        {
+          text: "4-10",
+          value: "4-10",
+        },
+        {
+          text: "Custom",
+          value: "custom",
+        },
+      ],
+      value: [],
+      wordRange: { from: "", to: "" },
+    };
+  },
 };
 </script>
 
@@ -145,9 +147,11 @@ export default {
   width: 200px;
 }
 .v-select .v-chip {
-    margin: 0px;
+  margin: 0px;
 }
-.select.v-text-field--filled > .v-input__control > .v-input__slot, .v-text-field--full-width > .v-input__control > .v-input__slot, .v-text-field--outlined > .v-input__control > .v-input__slot {
-    max-width: 210px !important;
+.select.v-text-field--filled > .v-input__control > .v-input__slot,
+.v-text-field--full-width > .v-input__control > .v-input__slot,
+.v-text-field--outlined > .v-input__control > .v-input__slot {
+  max-width: 210px !important;
 }
 </style>

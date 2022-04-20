@@ -37,35 +37,37 @@ export default {
       this.data.title = title;
     },
   },
-  data: () => ({
-    competitorRadioBtns: [
-      {
-        id: 1,
-        label: "0-20",
-        value: "0-20",
-      },
-      {
-        id: 2,
-        label: "21-50",
-        value: "21-50",
-      },
-      {
-        id: 3,
-        label: "51-75",
-        value: "51-75",
-      },
-      {
-        id: 4,
-        label: "76-100",
-        value: "76-100",
-      },
-      {
-        id: 5,
-        label: "Custom",
-        value: "custom",
-      },
-    ],
-  }),
+  data() {
+    return {
+      competitorRadioBtns: [
+        {
+          id: 1,
+          label: "0-20",
+          value: "0-20",
+        },
+        {
+          id: 2,
+          label: "21-50",
+          value: "21-50",
+        },
+        {
+          id: 3,
+          label: "51-75",
+          value: "51-75",
+        },
+        {
+          id: 4,
+          label: "76-100",
+          value: "76-100",
+        },
+        {
+          id: 5,
+          label: "Custom",
+          value: "custom",
+        },
+      ],
+    };
+  },
 };
 </script>
 

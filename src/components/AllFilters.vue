@@ -15,6 +15,7 @@
     <div v-if='true' class="filter-section">
       <!-- <div v-if="isShown" class="filter-section"> -->
       <div class="filter-wrapper">
+        <alternative-volume-filter></alternative-volume-filter>
         <position-filter @updateParent="updateData"/>
         <volume-filter @updateParent="updateData" />
         <cpc-filter :title="cpcFilter" @updateParent="updateCpc"/>

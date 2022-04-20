@@ -130,13 +130,22 @@ export default {
     updateData(data) {
       this.volumeFilter = data;
     },
-    updateCpc(data) {
-      this.cpcFilter = data;
-    },
     clearFilters() {
        this.position.title = ""
        this.position.from = ""
        this.position.to = ""
+
+       this.volume.title = ""
+       this.volume.from = ""
+       this.volume.to = ""
+
+       this.cpc.title = ""
+       this.cpc.from = ""
+       this.cpc.to = ""
+
+       this.competitor.title = ""
+       this.competitor.from = ""
+       this.competitor.to = ""
     },
   },
 };

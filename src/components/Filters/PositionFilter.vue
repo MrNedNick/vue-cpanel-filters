@@ -53,12 +53,10 @@ export default {
   components: { ApplyBtn, CustomSection, RadioSelect },
   methods: {
     update(title) {
-      this.positionTitle = title;
+      this.data.title = title;
     },
   },
   data: () => ({
-    positionTitle: "",
-    positionRange: { from: "", to: "" },
     positionRadioBtnsTop: [
       {
         id: 1,

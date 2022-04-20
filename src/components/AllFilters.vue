@@ -41,39 +41,12 @@
           Save Filter
         </v-btn>
       </div>
-      <div class="mt-5 table">
-        <span class="mb-2">
-          Position Filter:
-          {{
-            position.title === "custom"
-              ? `${position.from} - ${position.to}`
-              : position.title
-          }}
-        </span>
-        <span class="mb-2">
-          Volume Filter:
-          {{
-            volume.title === "custom"
-              ? `${volume.from} - ${volume.to}`
-              : volume.title
-          }}
-        </span>
-        <span class="mb-2">
-          Cpc Filter:
-          {{ cpc.title === "custom" ? `${cpc.from} - ${cpc.to}` : cpc.title }}
-        </span>
-        <span class="mb-2">
-          Competitor Filter:
-          {{
-            competitor.title === "custom"
-              ? `${competitor.from} - ${competitor.to}`
-              : competitor.title
-          }}
-        </span>
-        <!-- <span> Volume Filter: {{ volumeFilter }}</span>
-        <span> Cpc Filter: {{ cpcFilter }}</span>
-        <span> AdvancedFilter: {{ advancedFilter }}</span> -->
-      </div>
+      <data-table
+        :position="position"
+        :volume="volume"
+        :cpc="cpc"
+        :competitor="competitor"
+      />
     </div>
   </div>
 </template>
@@ -87,6 +60,7 @@ import GroupingsFilter from "./Filters/GroupingsFilter.vue";
 import PositionFilter from "./Filters/PositionFilter.vue";
 import VolumeFilter from "./Filters/VolumeFilter.vue";
 import WordCountFilter from "./Filters/WordCountFilter.vue";
+import DataTable from './Shared/DataTable.vue';
 import InternetField from "./Shared/InternetField.vue";
 export default {
   components: {
@@ -99,6 +73,7 @@ export default {
     CompetitorFilter,
     AlternativeVolumeFilter,
     InternetField,
+    DataTable
   },
   data: () => ({
     isShown: false,

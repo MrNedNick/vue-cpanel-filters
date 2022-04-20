@@ -11,10 +11,10 @@
           v-bind="attrs"
           v-on="on"
           class="main-btn advanced"
-          @click="isOpen()"
+
         >
           Advanced Filters
-          <v-icon v-bind:class="{ rotate: rotateIcon }">mdi-chevron-down</v-icon>
+          <v-icon v-bind:class="{ rotate : rotateIcon }">mdi-chevron-down</v-icon>
         </v-btn>
       </template>
       <v-list class="advanced-menu" >
@@ -66,7 +66,7 @@ export default {
     },
   },
   data: () => ({
-    rotateIcon: false,
+    rotateIcon: true,
     conditions: [{ id: 1 }],
     advancedSelect: "Keyword",
     advancedSelectItems: ["Keyword", "Path"],
@@ -174,7 +174,7 @@ export default {
 .main-btn.advanced.v-btn:not(.v-btn--round).v-size--default {
     width: 200px !important;
 }
-.rotate {
+.icon.rotate {
   transform: rotate(180deg);
 }
 </style>

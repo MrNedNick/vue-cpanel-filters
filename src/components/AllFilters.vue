@@ -15,7 +15,7 @@
     <div v-if="isShown" class="filter-section">
       <div class="filter-wrapper">
         <position-filter />
-        <volume-filter />
+        <volume-filter v-model="volumeFilter"  @updateParent="onUpdateSalary"/>
         <cpc-filter />
         <competitor-filter />
         <advanced-filter />
@@ -40,6 +40,7 @@
           Save Filter
         </v-btn>
       </div>
+      <span>{{ volumeFilter }}</span>
     </div>
   </div>
 </template>
@@ -77,10 +78,12 @@ export default {
     competitorFilter: "",
   }),
   methods: {
-    showFilters(){
-      this.isShown = !this.isShown
+    showFilters() {
+      this.isShown = !this.isShown;
     },
-    submit() {},
+    onUpdateSalary(data) {
+      this.volumeFilter = data;
+    },
   },
 };
 </script>
@@ -106,7 +109,6 @@ body {
 }
 .top-section {
   display: flex;
-
 }
 .menu-container {
   margin-top: 40px;
@@ -195,13 +197,13 @@ body {
 //   }
 // }
 .filter-btn {
-    font-family: "Source Sans Pro";
+  font-family: "Source Sans Pro";
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
   text-transform: none;
   letter-spacing: 0em;
-  color: #3366FF !important;
+  color: #3366ff !important;
   opacity: 0.8;
 }
 .save-all-btn {

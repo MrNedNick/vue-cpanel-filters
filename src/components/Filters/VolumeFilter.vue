@@ -5,6 +5,7 @@
       class="menu"
       ref="menu"
       offset-y
+      
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
@@ -90,6 +91,26 @@ export default {
     };
   },
   methods: {
+    changeTitle() {
+      console.log(this.volumeTitle)
+    }
   },
+  computed: {
+    salary() {
+      return this.volumeTitle
+    }
+  },
+
+  watch: {
+    // Эта функция запускается при любом изменении значений
+    // в вычисляемом свойстве `salary`.
+    salary(newValue, oldValue) {
+      // Пробрасываем данные родительскому компоненту,
+      // ч/з вызов метода.
+      this.$emit('updateParent', 
+        this.volumeTitle
+      )
+    }
+  }
 };
 </script>

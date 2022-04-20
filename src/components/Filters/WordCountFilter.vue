@@ -148,6 +148,6 @@ export default {
     margin: 0px;
 }
 .select.v-text-field--filled > .v-input__control > .v-input__slot, .v-text-field--full-width > .v-input__control > .v-input__slot, .v-text-field--outlined > .v-input__control > .v-input__slot {
-    max-width: 160px !important;
+    max-width: 210px !important;
 }
 </style>

@@ -15,7 +15,7 @@
     <div v-if="isShown" class="filter-section">
       <div class="filter-wrapper">
         <position-filter />
-        <volume-filter v-model="volumeFilter"  @updateParent="onUpdateSalary"/>
+        <volume-filter @updateParent="onUpdateSalary"/>
         <cpc-filter />
         <competitor-filter />
         <advanced-filter />

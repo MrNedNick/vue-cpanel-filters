@@ -5,7 +5,6 @@
       class="menu"
       ref="menu"
       offset-y
-      
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
@@ -30,8 +29,6 @@
             />
           </v-radio-group>
         </v-list-item>
-        <!-- <radio-select
-        ></radio-select> -->
         <custom-section
           :title="volumeTitle"
           :range="volumeRange"
@@ -56,6 +53,13 @@ export default {
     RadioSelect,
     CustomSection,
     ApplyBtn,
+  },
+  methods: {
+    // title() {
+    //  return volumeTitle !== "custom"
+    //           ? volumeTitle
+    //           : `${volumeRange.from} - ${volumeRange.to}`
+    // }
   },
   data() {
     return {
@@ -90,23 +94,13 @@ export default {
       ],
     };
   },
-  methods: {
-    changeTitle() {
-      console.log(this.volumeTitle)
-    }
-  },
   computed: {
-    salary() {
+    title() {
       return this.volumeTitle
     }
   },
-
   watch: {
-    // Эта функция запускается при любом изменении значений
-    // в вычисляемом свойстве `salary`.
-    salary(newValue, oldValue) {
-      // Пробрасываем данные родительскому компоненту,
-      // ч/з вызов метода.
+    title(newValue, oldValue) {
       this.$emit('updateParent', 
         this.volumeTitle
       )

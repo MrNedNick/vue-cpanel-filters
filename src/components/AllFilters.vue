@@ -15,7 +15,7 @@
     <div v-if="true" class="filter-section">
       <!-- <div v-if="isShown" class="filter-section"> -->
       <div class="filter-wrapper">
-        <alternative-volume-filter></alternative-volume-filter>
+        <!-- <alternative-volume-filter></alternative-volume-filter> -->
         <position-filter :data="position" @updateParent="updateData" />
         <volume-filter @updateParent="updateData" />
         <cpc-filter :title="cpcFilter" @updateParent="updateCpc" />
@@ -44,8 +44,8 @@
       <div class="mt-5 table">
         <span> Volume Filter: {{ volumeFilter }}</span>
         <span> Cpc Filter: {{ cpcFilter }}</span>
-        <!-- <span> Position Filter: {{ positionFilter }}</span>
-        <span> Volume Filter: {{ volumeFilter }}</span>
+        <span> Position Filter: {{ position }}</span>
+        <!-- <span> Volume Filter: {{ volumeFilter }}</span>
         <span> Cpc Filter: {{ cpcFilter }}</span>
         <span> CompetitorFilter: {{ competitorFilter }}</span>
         <span> AdvancedFilter: {{ advancedFilter }}</span> -->
@@ -78,9 +78,9 @@ export default {
   },
   data: () => ({
     position: {
-      title: "",
-      from: "",
-      to: "",
+      title: "custom",
+      from: "1",
+      to: "2",
     },
     isShown: false,
 

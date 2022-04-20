@@ -20,22 +20,22 @@
       <v-list class="menu">
         <radio-select
           :items="positionRadioBtnsTop"
-          :title="positionTitle"
+          :title="data.title"
           @update-title="update"
         />
         <v-divider />
         <radio-select
           :items="positionRadioBtns"
-          :title="positionTitle"
+          :title="data.title"
           @update-title="update"
         />
         <custom-section
-          :range="positionRange"
-          :title="positionTitle"
+          :range="data"
+          :title="data.title"
         />
         <div class="bottom">
           <apply-btn 
-            :title="positionTitle" 
+            :title="data.title" 
             @close="$refs.menu.save()"
           />
         </div>
@@ -57,11 +57,6 @@ export default {
     },
   },
   data: () => ({
-    position: {
-      title: "",
-      from: "",
-      to: ""
-    },
     positionTitle: "",
     positionRange: { from: "", to: "" },
     positionRadioBtnsTop: [

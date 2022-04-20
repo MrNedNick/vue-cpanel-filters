@@ -16,8 +16,11 @@
 <script>
 export default {
   props: ["title", "items"],
+  data: () => {
+  },
   methods: {
     updateTitle() {
+      
       let newTitle = this.title;
       this.$emit("update-title", newTitle);
     },

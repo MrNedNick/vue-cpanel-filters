@@ -69,7 +69,7 @@
               ? `${competitor.from} - ${competitor.to}`
               : competitor.title
           }}
-        </span> 
+        </span>
         <!-- <span> Volume Filter: {{ volumeFilter }}</span>
         <span> Cpc Filter: {{ cpcFilter }}</span>
         <span> AdvancedFilter: {{ advancedFilter }}</span> -->
@@ -134,7 +134,9 @@ export default {
       this.cpcFilter = data;
     },
     clearFilters() {
-      this.volumeFilter = "";
+       this.position.title = ""
+       this.position.from = ""
+       this.position.to = ""
     },
   },
 };

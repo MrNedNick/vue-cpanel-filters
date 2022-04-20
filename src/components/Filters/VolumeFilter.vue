@@ -1,11 +1,6 @@
 <template>
   <div class="menu-container ml-6">
-    <v-menu
-      :close-on-content-click="false"
-      class="menu"
-      ref="menu"
-      offset-y
-    >
+    <v-menu :close-on-content-click="false" class="menu" ref="menu" offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Volume:
@@ -29,15 +24,9 @@
             />
           </v-radio-group>
         </v-list-item>
-        <custom-section
-          :title="volumeTitle"
-          :range="volumeRange"
-        />  
+        <custom-section :title="volumeTitle" :range="volumeRange" />
         <div class="bottom">
-          <apply-btn 
-            :title="volumeTitle"
-            @close="$refs.menu.save()"
-          />
+          <apply-btn :title="volumeTitle" @close="$refs.menu.save()" />
         </div>
       </v-list>
     </v-menu>
@@ -47,7 +36,7 @@
 <script>
 import RadioSelect from "../Shared/RadioSelect.vue";
 import CustomSection from "../Shared/CustomSection.vue";
-import ApplyBtn from '../Shared/ApplyBtn.vue';
+import ApplyBtn from "../Shared/ApplyBtn.vue";
 export default {
   components: {
     RadioSelect,
@@ -63,6 +52,7 @@ export default {
   },
   data() {
     return {
+      name: "volumeTitle",
       volumeTitle: "",
       volumeRange: { from: "", to: "" },
       volumeRadioBtns: [
@@ -96,15 +86,16 @@ export default {
   },
   computed: {
     title() {
-      return this.volumeTitle
-    }
+      return this.volumeTitle;
+    },
   },
   watch: {
     title(newValue, oldValue) {
-      this.$emit('updateParent', 
-        this.volumeTitle
-      )
-    }
-  }
+      this.$emit(
+        "updateParent",
+        this.volumeTitle 
+      );
+    },
+  },
 };
 </script>

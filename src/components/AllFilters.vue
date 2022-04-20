@@ -14,13 +14,13 @@
     </div>
     <div v-if="isShown" class="filter-section">
       <div class="filter-wrapper">
-        <position-filter @updateParent="updateVolume"/>
-        <volume-filter @updateParent="updateVolume" />
-        <cpc-filter @updateParent="updateVolume"/>
-        <competitor-filter @updateParent="updateVolume"/>
-        <advanced-filter @updateParent="updateVolume"/>
-        <groupings-filter @updateParent="updateVolume"/>
-        <word-count-filter @updateParent="updateVolume"/>
+        <position-filter @updateParent="updateData"/>
+        <volume-filter @updateParent="updateData" />
+        <cpc-filter @updateParent="updateData"/>
+        <competitor-filter @updateParent="updateData"/>
+        <advanced-filter @updateParent="updateData"/>
+        <groupings-filter @updateParent="updateData"/>
+        <word-count-filter @updateParent="updateData"/>
       </div>
       <div class="btns-wrapper">
         <v-btn @click="submit()" class="apply-btn" width="83" height="40">
@@ -41,11 +41,12 @@
         </v-btn>
       </div>
       <div class="mt-5">
-        <span> Position Filter: {{ positionFilter }}</span>
+        <span> Volume Filter: {{ volumeFilter }}</span>
+        <!-- <span> Position Filter: {{ positionFilter }}</span>
         <span> Volume Filter: {{ volumeFilter }}</span>
         <span> Cpc Filter: {{ cpcFilter }}</span>
         <span> CompetitorFilter: {{ competitorFilter }}</span>
-        <span> AdvancedFilter: {{ advancedFilter }}</span>
+        <span> AdvancedFilter: {{ advancedFilter }}</span> -->
       </div>
     </div>
   </div>
@@ -88,11 +89,8 @@ export default {
     showFilters() {
       this.isShown = !this.isShown;
     },
-    onUpdateVolume(data) {
-      this.advancedFilter = data;
-    },
-    onUpdateVolume(data) {
-      this.advancedFilter = data;
+    updateData(data) {
+      this.volumeFilter = data;
     },
   },
 };

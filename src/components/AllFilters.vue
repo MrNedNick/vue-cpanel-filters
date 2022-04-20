@@ -14,13 +14,13 @@
     </div>
     <div v-if="isShown" class="filter-section">
       <div class="filter-wrapper">
-        <position-filter />
-        <volume-filter @updateParent="onUpdateSalary"/>
-        <cpc-filter />
-        <competitor-filter />
-        <advanced-filter />
-        <groupings-filter />
-        <word-count-filter />
+        <position-filter @updateParent="updateVolume"/>
+        <volume-filter @updateParent="updateVolume" />
+        <cpc-filter @updateParent="updateVolume"/>
+        <competitor-filter @updateParent="updateVolume"/>
+        <advanced-filter @updateParent="updateVolume"/>
+        <groupings-filter @updateParent="updateVolume"/>
+        <word-count-filter @updateParent="updateVolume"/>
       </div>
       <div class="btns-wrapper">
         <v-btn @click="submit()" class="apply-btn" width="83" height="40">
@@ -40,7 +40,13 @@
           Save Filter
         </v-btn>
       </div>
-      <span>{{ volumeFilter }}</span>
+      <div class="mt-5">
+        <span> Position Filter: {{ positionFilter }}</span>
+        <span> Volume Filter: {{ volumeFilter }}</span>
+        <span> Cpc Filter: {{ cpcFilter }}</span>
+        <span> CompetitorFilter: {{ competitorFilter }}</span>
+        <span> AdvancedFilter: {{ advancedFilter }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -69,6 +75,7 @@ export default {
   },
   data: () => ({
     isShown: false,
+
     advancedFilter: "",
     postionFilter: "",
     volumeFilter: "",
@@ -81,8 +88,11 @@ export default {
     showFilters() {
       this.isShown = !this.isShown;
     },
-    onUpdateSalary(data) {
-      this.volumeFilter = data;
+    onUpdateVolume(data) {
+      this.advancedFilter = data;
+    },
+    onUpdateVolume(data) {
+      this.advancedFilter = data;
     },
   },
 };

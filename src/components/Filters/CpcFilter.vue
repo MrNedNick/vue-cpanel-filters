@@ -37,8 +37,8 @@
 import ApplyBtn from "../Shared/ApplyBtn.vue";
 import CustomSection from "../Shared/CustomSection.vue";
 export default {
+  props: ["data"],
   components: { ApplyBtn, CustomSection },
-  props: ["title"],
   computed: {
     changeTitle() {
       return this.cpcTitle 

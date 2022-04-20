@@ -17,7 +17,7 @@
       <div class="filter-wrapper">
         <!-- <alternative-volume-filter></alternative-volume-filter> -->
         <position-filter :data="position" @updateParent="updateData" />
-        <volume-filter @updateParent="updateData" />
+        <volume-filter :data="volume" @updateParent="updateData" />
         <cpc-filter :title="cpcFilter" @updateParent="updateCpc" />
         <competitor-filter @updateParent="updateData" />
         <advanced-filter @updateParent="updateData" />
@@ -50,7 +50,14 @@
               : position.title
           }}
         </span>
-        <span class="mb-2"> Volume Filter: {{ volumeFilter }}</span>
+        <span class="mb-2">
+          Volume Filter:
+          {{
+            volume.title === "custom"
+              ? `${volume.from} - ${volume.to}`
+              : volume.title
+          }}</span
+        >
         <span class="mb-2"> Cpc Filter: {{ cpcFilter }}</span>
         <span class="mb-2"> CompetitorFilter: {{ competitorFilter }}</span>
         <!-- <span> Volume Filter: {{ volumeFilter }}</span>
@@ -84,20 +91,27 @@ export default {
     InternetField,
   },
   data: () => ({
+    isShown: false,
     position: {
       title: "",
       from: "",
       to: "",
     },
-    isShown: false,
-
-    advancedFilter: "",
-    postionFilter: "",
-    volumeFilter: "",
-    cpcFilter: "",
-    wordCountFilter: "",
-    groupingsFilter: "",
-    competitorFilter: "",
+    volume: {
+      title: "",
+      from: "",
+      to: "",
+    },
+    cpc: {
+      title: "",
+      from: "",
+      to: "",
+    },
+    competitor: {
+      title: "",
+      from: "",
+      to: "",
+    },
   }),
   methods: {
     showFilters() {

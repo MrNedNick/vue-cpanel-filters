@@ -5,28 +5,22 @@
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           Volume:
           {{
-            volumeTitle !== "custom"
-              ? volumeTitle
-              : `${volumeRange.from} - ${volumeRange.to}`
+            data.title !== "custom"
+              ? data.title
+              : `${data.from} - ${data.to}`
           }}
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
       <v-list class="menu">
-        <v-list-item>
-          <v-radio-group v-model="volumeTitle">
-            <v-radio
-              class="radio"
-              v-for="btn in volumeRadioBtns"
-              :key="btn.id"
-              :label="btn.label"
-              :value="btn.value"
-            />
-          </v-radio-group>
-        </v-list-item>
-        <custom-section :title="volumeTitle" :range="volumeRange" />
+        <radio-select
+          :items="volumeRadioBtns"
+          :title="data.title"
+          @update-title="update"
+        />
+        <custom-section :title="data.title" :range="data" />
         <div class="bottom">
-          <apply-btn :title="volumeTitle" @close="$refs.menu.save()" />
+          <apply-btn :title="data.title" @close="$refs.menu.save()" />
         </div>
       </v-list>
     </v-menu>
@@ -38,23 +32,19 @@ import RadioSelect from "../Shared/RadioSelect.vue";
 import CustomSection from "../Shared/CustomSection.vue";
 import ApplyBtn from "../Shared/ApplyBtn.vue";
 export default {
+  props: ["data"],
   components: {
     RadioSelect,
     CustomSection,
     ApplyBtn,
   },
   methods: {
-    // title() {
-    //  return volumeTitle !== "custom"
-    //           ? volumeTitle
-    //           : `${volumeRange.from} - ${volumeRange.to}`
-    // }
+    update(title) {
+      this.data.title = title;
+    },
   },
   data() {
     return {
-      name: "volumeTitle",
-      volumeTitle: "",
-      volumeRange: { from: "", to: "" },
       volumeRadioBtns: [
         {
           id: 1,
@@ -91,10 +81,7 @@ export default {
   },
   watch: {
     title(newValue, oldValue) {
-      this.$emit(
-        "updateParent",
-        this.volumeTitle 
-      );
+      this.$emit("updateParent", this.volumeTitle);
     },
   },
 };

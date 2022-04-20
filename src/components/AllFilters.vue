@@ -42,12 +42,19 @@
         </v-btn>
       </div>
       <div class="mt-5 table">
-        <span> Volume Filter: {{ volumeFilter }}</span>
-        <span> Cpc Filter: {{ cpcFilter }}</span>
-        <span> Position Filter: {{ position }}</span>
+        <span class="mb-2">
+          Position Filter:
+          {{
+            position.title === "custom"
+              ? `${position.from} - ${position.to}`
+              : position.title
+          }}
+        </span>
+        <span class="mb-2"> Volume Filter: {{ volumeFilter }}</span>
+        <span class="mb-2"> Cpc Filter: {{ cpcFilter }}</span>
+        <span class="mb-2"> CompetitorFilter: {{ competitorFilter }}</span>
         <!-- <span> Volume Filter: {{ volumeFilter }}</span>
         <span> Cpc Filter: {{ cpcFilter }}</span>
-        <span> CompetitorFilter: {{ competitorFilter }}</span>
         <span> AdvancedFilter: {{ advancedFilter }}</span> -->
       </div>
     </div>
@@ -78,9 +85,9 @@ export default {
   },
   data: () => ({
     position: {
-      title: "custom",
-      from: "1",
-      to: "2",
+      title: "",
+      from: "",
+      to: "",
     },
     isShown: false,
 

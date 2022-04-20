@@ -12,18 +12,19 @@
         Filter
       </v-btn>
     </div>
-    <div v-if="isShown" class="filter-section">
+    <div v-if='true' class="filter-section">
+      <!-- <div v-if="isShown" class="filter-section"> -->
       <div class="filter-wrapper">
         <position-filter @updateParent="updateData"/>
         <volume-filter @updateParent="updateData" />
-        <cpc-filter @updateParent="updateData"/>
+        <cpc-filter :title="cpcFilter" @updateParent="updateCpc"/>
         <competitor-filter @updateParent="updateData"/>
         <advanced-filter @updateParent="updateData"/>
         <groupings-filter @updateParent="updateData"/>
         <word-count-filter @updateParent="updateData"/>
       </div>
       <div class="btns-wrapper">
-        <v-btn @click="submit()" class="apply-btn" width="83" height="40">
+        <v-btn  class="apply-btn" width="83" height="40">
           Apply
         </v-btn>
         <v-btn
@@ -32,6 +33,7 @@
           outlined
           width="98"
           height="40"
+          @click="clearFilters()"
         >
           Clear All
         </v-btn>
@@ -40,8 +42,9 @@
           Save Filter
         </v-btn>
       </div>
-      <div class="mt-5">
+      <div class="mt-5 table">
         <span> Volume Filter: {{ volumeFilter }}</span>
+        <span> Cpc Filter: {{ cpcFilter }}</span>
         <!-- <span> Position Filter: {{ positionFilter }}</span>
         <span> Volume Filter: {{ volumeFilter }}</span>
         <span> Cpc Filter: {{ cpcFilter }}</span>
@@ -92,6 +95,12 @@ export default {
     updateData(data) {
       this.volumeFilter = data;
     },
+    updateCpc(data) {
+      this.cpcFilter = data
+    },
+    clearFilters() {
+      this.volumeFilter = ''
+    }
   },
 };
 </script>
@@ -230,5 +239,9 @@ body {
   font-size: 14px;
   line-height: 18px;
   text-transform: capitalize;
+}
+.table {
+  display: flex;
+  flex-direction: column;
 }
 </style>

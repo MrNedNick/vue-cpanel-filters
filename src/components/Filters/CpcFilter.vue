@@ -1,11 +1,6 @@
 <template>
   <div class="menu-container ml-6">
-    <v-menu
-      :close-on-content-click="false"
-      class="menu"
-      ref="menu"
-      offset-y
-    >
+    <v-menu :close-on-content-click="false" class="menu" ref="menu" offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           CPC:
@@ -29,15 +24,9 @@
             />
           </v-radio-group>
         </v-list-item>
-        <custom-section
-          :range="cpcRange"
-          :title="cpcTitle"
-        />
+        <custom-section :range="cpcRange" :title="cpcTitle" />
         <div class="bottom">
-          <apply-btn 
-            :title="this.cpcTitle"
-            @close="$refs.menu.save()"
-          />
+          <apply-btn :title="this.title" @close="$refs.menu.save()" />
         </div>
       </v-list>
     </v-menu>
@@ -45,10 +34,21 @@
 </template>
 
 <script>
-import ApplyBtn from '../Shared/ApplyBtn.vue';
-import CustomSection from '../Shared/CustomSection.vue';
+import ApplyBtn from "../Shared/ApplyBtn.vue";
+import CustomSection from "../Shared/CustomSection.vue";
 export default {
   components: { ApplyBtn, CustomSection },
+  props: ["title"],
+  computed: {
+    changeTitle() {
+      return this.cpcTitle 
+    },
+  },
+  watch: {
+    changeTitle(newValue, oldValue) {
+      this.$emit("updateParent", this.cpcTitle);
+    },
+  },
   data: () => ({
     cpcTitle: "",
     cpcRange: { from: "", to: "" },

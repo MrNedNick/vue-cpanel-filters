@@ -5,28 +5,20 @@
         <v-btn v-bind="attrs" v-on="on" class="main-btn">
           CPC:
           {{
-            cpcTitle !== "custom"
-              ? cpcTitle
-              : `${cpcRange.from} - ${cpcRange.to}`
+            data.title !== "custom" ? data.title : `${data.from} - ${data.to}`
           }}
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
       <v-list class="menu">
-        <v-list-item>
-          <v-radio-group v-model="cpcTitle">
-            <v-radio
-              class="radio"
-              v-for="btn in cpcRadioBtns"
-              :key="btn.id"
-              :label="btn.label"
-              :value="btn.value"
-            />
-          </v-radio-group>
-        </v-list-item>
-        <custom-section :range="cpcRange" :title="cpcTitle" />
+        <radio-select
+          :items="cpcRadioBtns"
+          :title="data.title"
+          @update-title="update"
+        />
+        <custom-section :title="data.title" :range="data" />
         <div class="bottom">
-          <apply-btn :title="this.title" @close="$refs.menu.save()" />
+          <apply-btn :title="data.title" @close="$refs.menu.save()" />
         </div>
       </v-list>
     </v-menu>
@@ -36,22 +28,16 @@
 <script>
 import ApplyBtn from "../Shared/ApplyBtn.vue";
 import CustomSection from "../Shared/CustomSection.vue";
+import RadioSelect from "../Shared/RadioSelect.vue";
 export default {
   props: ["data"],
-  components: { ApplyBtn, CustomSection },
-  computed: {
-    changeTitle() {
-      return this.cpcTitle 
-    },
-  },
-  watch: {
-    changeTitle(newValue, oldValue) {
-      this.$emit("updateParent", this.cpcTitle);
+  components: { ApplyBtn, CustomSection, RadioSelect },
+  methods: {
+    update(title) {
+      this.data.title = title;
     },
   },
   data: () => ({
-    cpcTitle: "",
-    cpcRange: { from: "", to: "" },
     cpcRadioBtns: [
       {
         id: 1,
@@ -75,6 +61,16 @@ export default {
       },
     ],
   }),
+  // computed: {
+  //   changeTitle() {
+  //     return this.cpcTitle
+  //   },
+  // },
+  // watch: {
+  //   changeTitle(newValue, oldValue) {
+  //     this.$emit("updateParent", this.cpcTitle);
+  //   },
+  // },
 };
 </script>
 

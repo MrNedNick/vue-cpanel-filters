@@ -18,7 +18,7 @@
         <!-- <alternative-volume-filter></alternative-volume-filter> -->
         <position-filter :data="position" @updateParent="updateData" />
         <volume-filter :data="volume" @updateParent="updateData" />
-        <cpc-filter :title="cpcFilter" @updateParent="updateCpc" />
+        <cpc-filter :data="cpc" @updateParent="updateData" />
         <competitor-filter @updateParent="updateData" />
         <advanced-filter @updateParent="updateData" />
         <groupings-filter @updateParent="updateData" />
@@ -56,10 +56,20 @@
             volume.title === "custom"
               ? `${volume.from} - ${volume.to}`
               : volume.title
-          }}</span
-        >
-        <span class="mb-2"> Cpc Filter: {{ cpcFilter }}</span>
-        <span class="mb-2"> CompetitorFilter: {{ competitorFilter }}</span>
+          }}
+        </span>
+        <span class="mb-2">
+          Cpc Filter:
+          {{ cpc.title === "custom" ? `${cpc.from} - ${cpc.to}` : cpc.title }}
+        </span>
+        <!-- <span class="mb-2">
+          Competitor Filter:
+          {{
+            competitor.title === "custom"
+              ? `${competitor.from} - ${competitor.to}`
+              : competitor.title
+          }}
+        </span> -->
         <!-- <span> Volume Filter: {{ volumeFilter }}</span>
         <span> Cpc Filter: {{ cpcFilter }}</span>
         <span> AdvancedFilter: {{ advancedFilter }}</span> -->

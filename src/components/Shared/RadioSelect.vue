@@ -20,7 +20,6 @@ export default {
   },
   methods: {
     updateTitle() {
-      
       let newTitle = this.title;
       this.$emit("update-title", newTitle);
     },

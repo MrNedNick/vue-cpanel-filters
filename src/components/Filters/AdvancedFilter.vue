@@ -52,7 +52,7 @@ export default {
       this.theConditions.push(newTask);
     },
     deleteCondition(id) {
-      this.theConditions = this.theConditions.filter((task) => task.id !== id);
+      this.$emit("delete-condition", id)
     },
     isOpen() {
       this.rotateIcon = !this.rotateIcon;

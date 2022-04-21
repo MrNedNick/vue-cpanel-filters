@@ -19,7 +19,7 @@
         <volume-filter :data="volume" />
         <cpc-filter :data="cpc" />
         <competitor-filter :data="competitor" />
-        <advanced-filter :data="conditions" />
+        <advanced-filter :data="conditions" @delete-condition="deleteCondition(id)" />
         <groupings-filter :data="groupings" />
         <word-count-filter />
       </div>
@@ -100,13 +100,15 @@ export default {
         to: "",
       },
       conditions: [{ id: 1 }],
-      advanced: [{
-        id: 1,
-        advancedSelect: "",
-        advancedKeywordSelect: "",
-        advancedPathSelect: "",
-        advancedTextField: "",
-      }],
+      advanced: [
+        {
+          id: 1,
+          advancedSelect: "",
+          advancedKeywordSelect: "",
+          advancedPathSelect: "",
+          advancedTextField: "",
+        },
+      ],
       groupings: {
         firstSelect: "",
         secondSelect: "",
@@ -116,6 +118,9 @@ export default {
   methods: {
     showFilters() {
       this.isShown = !this.isShown;
+    },
+    deleteCondition(id) {
+      this.conditions = this.conditions.filter((task) => task.id !== id);
     },
     clearFilters() {
       this.position.title = "";

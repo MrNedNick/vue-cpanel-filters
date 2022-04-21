@@ -16,7 +16,7 @@
         <v-list-item>
           <div class="groupings-container">
             <v-select
-              v-model="data.first"
+              v-model="data.firstSelect"
               :items="groupingsEqualItems"
               :menu-props="{ bottom: true, offsetY: true }"
               class="selectBtn mt-2"
@@ -24,7 +24,7 @@
               outlined
             />
             <v-select
-              v-model="data.second"
+              v-model="data.secondSelect"
               :items="groupingsBestItems"
               :menu-props="{ bottom: true, offsetY: true }"
               class="selectBtn mt-2 ml-4"

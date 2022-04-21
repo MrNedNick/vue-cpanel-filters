@@ -1,59 +1,5 @@
 <template>
   <div class="menu-container ml-6">
-    <!-- <v-menu
-      :close-on-content-click="false"
-      class="menu"
-      ref="menu"
-      offset-y
-    > -->
-    <!-- <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on" class="main-btn">
-          Word Count
-          <v-icon>mdi-chevron-down</v-icon>
-        </v-btn>
-      </template>
-      <v-list class="menu">
-        <v-list-item> -->
-    <!-- <div class="checkbox-container">
-            <v-checkbox class="pt-3 radio" label="1" />
-            <v-checkbox class="checkbox radio" label="2" />
-            <v-checkbox class="checkbox radio" label="3" />
-            <v-checkbox class="checkbox radio" label="4-10" />
-            <v-checkbox class="checkbox radio" label="Custom" />
-          </div> -->
-    <!-- </v-list-item>
-        <v-divider />
-        <div class="custom-section ml-2 mr-2">
-          <v-container>
-            <div class="flex">
-              <div>From</div>
-              <v-text-field
-                outlined
-                :disabled="disabled"
-                v-model="selectedItem"
-                value="from"
-              />
-            </div>
-          </v-container>
-          <div class="custom-line">-</div>
-          <v-container>
-            <div class="flex">
-              <div>To*</div>
-              <v-text-field
-                outlined
-                :disabled="disabled"
-                v-model="selectedItem"
-                value="to"
-              />
-            </div>
-          </v-container>
-        </div>
-        <div class="section-label">*Max. value is unlimited</div>
-        <div class="bottom">
-          <v-btn class="apply-btn" :disabled="disabled"> Apply </v-btn>
-        </div> -->
-    <!-- </v-list>
-    </v-menu> -->
     <v-select
       ref="select"
       v-model="value"
@@ -96,6 +42,7 @@
 import ApplyBtn from "../Shared/ApplyBtn.vue";
 import CustomSection from "../Shared/CustomSection.vue";
 export default {
+  props: ["data"],
   components: { ApplyBtn, CustomSection },
   methods: {
     isDisabled() {
@@ -104,6 +51,7 @@ export default {
   },
   data() {
     return {
+      value: this.data,
       items: [
         {
           text: "1",
@@ -126,9 +74,19 @@ export default {
           value: "custom",
         },
       ],
-      value: [],
       wordRange: { from: "", to: "" },
     };
+  },
+  computed: {
+    newData() {
+      return this.value;
+    },
+  },
+  watch: {
+    newData(newValue, oldValue) {
+      console.log('up')
+      this.$emit("updateData", this.value);
+    },
   },
 };
 </script>

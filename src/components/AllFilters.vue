@@ -14,40 +14,46 @@
     </div>
     <div v-if="true" class="filter-section">
       <!-- <div v-if="isShown" class="filter-section"> -->
-      <div class="filter-wrapper">
-        <position-filter :data="position" />
-        <volume-filter :data="volume" />
-        <cpc-filter :data="cpc" />
-        <competitor-filter :data="competitor" />
-        <advanced-filter :data="conditions" @delete-condition="deleteCondition(id)" />
-        <groupings-filter :data="groupings" />
-        <word-count-filter />
+      <div class="filter-section">
+        <div class="filter-wrapper">
+          <position-filter :data="position" />
+          <volume-filter :data="volume" />
+          <cpc-filter :data="cpc" />
+          <competitor-filter :data="competitor" />
+          <advanced-filter
+            :data="conditions"
+            @delete-condition="deleteCondition(id)"
+          />
+          <groupings-filter :data="groupings" />
+          <word-count-filter :data="word" @updateData="update" />
+        </div>
+        <div class="btns-wrapper">
+          <v-btn class="apply-btn" width="83" height="40"> Apply </v-btn>
+          <v-btn
+            class="clear-btn ml-4"
+            color="#3366FF"
+            outlined
+            width="98"
+            height="40"
+            @click="clearFilters()"
+          >
+            Clear All
+          </v-btn>
+          <v-btn class="save-all-btn ml-4" href="#" elevation="0" height="40">
+            <v-icon color="#3366FF" class="advanced-btn_icon">mdi-plus</v-icon>
+            Save Filter
+          </v-btn>
+        </div>
+        <data-table
+          :position="position"
+          :volume="volume"
+          :cpc="cpc"
+          :competitor="competitor"
+          :groupings="groupings"
+          :advanced="conditions"
+          :word="word"
+        />
       </div>
-      <div class="btns-wrapper">
-        <v-btn class="apply-btn" width="83" height="40"> Apply </v-btn>
-        <v-btn
-          class="clear-btn ml-4"
-          color="#3366FF"
-          outlined
-          width="98"
-          height="40"
-          @click="clearFilters()"
-        >
-          Clear All
-        </v-btn>
-        <v-btn class="save-all-btn ml-4" href="#" elevation="0" height="40">
-          <v-icon color="#3366FF" class="advanced-btn_icon">mdi-plus</v-icon>
-          Save Filter
-        </v-btn>
-      </div>
-      <data-table
-        :position="position"
-        :volume="volume"
-        :cpc="cpc"
-        :competitor="competitor"
-        :groupings="groupings"
-        :advanced="conditions"
-      />
     </div>
   </div>
 </template>
@@ -81,22 +87,22 @@ export default {
       isShown: false,
       position: {
         title: "",
-        from: "",
+        from: "0",
         to: "",
       },
       volume: {
         title: "",
-        from: "",
+        from: "0",
         to: "",
       },
       cpc: {
         title: "",
-        from: "",
+        from: "0",
         to: "",
       },
       competitor: {
         title: "",
-        from: "",
+        from: "0",
         to: "",
       },
       conditions: [{ id: 1 }],
@@ -113,6 +119,8 @@ export default {
         firstSelect: "",
         secondSelect: "",
       },
+      word: [],
+      wordRange: { from: "", to: "" },
     };
   },
   methods: {
@@ -121,6 +129,9 @@ export default {
     },
     deleteCondition(id) {
       this.conditions = this.conditions.filter((task) => task.id !== id);
+    },
+    update(newData) {
+      this.word = newData;
     },
     clearFilters() {
       this.position.title = "";

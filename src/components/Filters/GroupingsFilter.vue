@@ -56,9 +56,7 @@ export default {
   },
   data() {
     return {
-      groupingsEqualSelect: "Equal to",
       groupingsEqualItems: ["Equal to", "Not equal to"],
-      groupingsBestSelect: "All",
       groupingsBestItems: [
         "All",
         "Best Rankings/position (one URL per keyword)",

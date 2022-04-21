@@ -1,6 +1,6 @@
 <template>
   <v-list-item>
-    <v-radio-group v-model="title">
+    <v-radio-group v-model="itemTitle">
       <v-radio
         class="radio"
         v-for="btn in items"
@@ -18,15 +18,15 @@ export default {
   props: ["title", "items"],
   methods: {
     updateTitle() {
-      let newTitle = this.title;
+      let newTitle = this.itemTitle;
       this.$emit("update-title", newTitle);
     },
   },
-  // data: function () {
-  //   return {
-  //     itemTitle: this.title,
-  //   };
-  // },
+  data: function () {
+    return {
+      itemTitle: this.title,
+    };
+  },
 };
 </script>
 

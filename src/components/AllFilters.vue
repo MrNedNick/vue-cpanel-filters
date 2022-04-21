@@ -101,7 +101,7 @@ export default {
       },
       groupings: {
         firstSelect: "",
-        secondSelect: "", 
+        secondSelect: "",
       },
     };
   },
@@ -125,6 +125,9 @@ export default {
       this.competitor.title = "";
       this.competitor.from = "";
       this.competitor.to = "";
+
+      this.groupings.firstSelect = "";
+      this.groupings.secondSelect = "";
     },
   },
 };

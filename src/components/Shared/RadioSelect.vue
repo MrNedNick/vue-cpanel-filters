@@ -22,6 +22,11 @@ export default {
       this.$emit("update-title", newTitle);
     },
   },
+  // data: function () {
+  //   return {
+  //     itemTitle: this.title,
+  //   };
+  // },
 };
 </script>
 

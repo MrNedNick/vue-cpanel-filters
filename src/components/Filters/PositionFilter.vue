@@ -16,12 +16,12 @@
           :title="data.title"
           @update-title="update"
         />
-        <v-divider />
+        <!-- <v-divider />
         <radio-select
           :items="positionRadioBtns"
           :title="data.title"
           @update-title="update"
-        />
+        /> -->
         <custom-section :range="data" :title="data.title" />
         <div class="bottom">
           <apply-btn :title="data.title" @close="$refs.menu.save()" />
@@ -66,8 +66,8 @@ export default {
           label: "Top 3",
           value: "Top 3",
         },
-      ],
-      positionRadioBtns: [
+      // ],
+      // positionRadioBtns: [
         {
           id: 5,
           label: "1",

@@ -16,16 +16,16 @@
 <script>
 export default {
   props: ["title", "items"],
+  data: function () {
+    return {
+      itemTitle: this.title,
+    };
+  },
   methods: {
     updateTitle() {
       let newTitle = this.itemTitle;
       this.$emit("update-title", newTitle);
     },
-  },
-  data: function () {
-    return {
-      itemTitle: this.title,
-    };
   },
 };
 </script>

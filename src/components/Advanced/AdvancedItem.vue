@@ -12,6 +12,7 @@
         class="selectBtn"
         filled
         outlined
+        placeholder="Select"
       >
       </v-select>
       <v-select
@@ -22,6 +23,7 @@
         class="selectBtn ml-3"
         filled
         outlined
+        placeholder="Select"
       ></v-select>
       <v-select
         v-if="advancedSelect === 'Path'"
@@ -31,6 +33,7 @@
         class="selectBtn ml-3"
         filled
         outlined
+        placeholder="Select"
       ></v-select>
       <v-text-field
         v-model="advancedTextField"

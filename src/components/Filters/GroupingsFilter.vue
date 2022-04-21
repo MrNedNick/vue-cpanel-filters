@@ -22,6 +22,7 @@
               class="selectBtn mt-2"
               filled
               outlined
+              placeholder="Select"
             />
             <v-select
               v-model="data.secondSelect"
@@ -30,6 +31,7 @@
               class="selectBtn mt-2 ml-4"
               filled
               outlined
+              placeholder="Select"
             />
           </div>
         </v-list-item>

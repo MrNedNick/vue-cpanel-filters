@@ -32,15 +32,13 @@
       Groupings Filter:
       {{ `${groupings.firstSelect} - ${groupings.secondSelect}` }}
     </span>
-    <!-- <span> Volume Filter: {{ volumeFilter }}</span>
-        <span> Cpc Filter: {{ cpcFilter }}</span>
-        <span> AdvancedFilter: {{ advancedFilter }}</span> -->
+    <span> AdvancedFilter: {{ advanced }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["position", "volume", "cpc", "competitor", "groupings"],
+  props: ["position", "volume", "cpc", "competitor", "groupings", "advanced"],
 };
 </script>
 

@@ -11,9 +11,9 @@
       </template>
       <v-list class="advanced-menu">
         <advanced-item
-          v-for="condition in conditions"
-          :key="condition.id"
-          @delete="deleteCondition(condition.id)"
+          v-for="condition in theConditions"
+          :key="theConditions.id"
+          @delete="deleteCondition(theConditions.id)"
         />
         <v-list-item>
           <v-btn
@@ -42,16 +42,17 @@
 import AdvancedItem from "../Advanced/AdvancedItem.vue";
 import ApplyBtn from "../Shared/ApplyBtn.vue";
 export default {
+  props: [ "data" ],
   components: { AdvancedItem, ApplyBtn },
   methods: {
     addCondition() {
       let newTask = {
         id: Date.now(),
       };
-      this.conditions.push(newTask);
+      this.theConditions.push(newTask);
     },
     deleteCondition(id) {
-      this.conditions = this.conditions.filter((task) => task.id !== id);
+      this.theConditions = this.theConditions.filter((task) => task.id !== id);
     },
     isOpen() {
       this.rotateIcon = !this.rotateIcon;
@@ -60,20 +61,10 @@ export default {
   data() {
     return {
       rotateIcon: true,
-      conditions: [{ id: 1 }],
-      advancedSelect: "Keyword",
-      advancedSelectItems: ["Keyword", "Path"],
-      advancedKeywordSelect: "Contains",
-      advancedKeywordItems: [
-        "Contains",
-        "Does not contain",
-        "Equal to",
-        "Not equal to",
-        "Starts with",
-        "Does not start with",
-      ],
-      advancedPathSelect: "Starts with",
-      advancedPathItems: ["Starts with", "Does not start with"],
+      theConditions: this.data,
+      advancedSelect: "",
+      advancedKeywordSelect: "",
+      advancedPathSelect: "",
       selectedItem: null,
       disabled: false,
     };

@@ -15,12 +15,11 @@
     <div v-if="true" class="filter-section">
       <!-- <div v-if="isShown" class="filter-section"> -->
       <div class="filter-wrapper">
-        <!-- <alternative-volume-filter></alternative-volume-filter> -->
         <position-filter :data="position" />
         <volume-filter :data="volume" />
         <cpc-filter :data="cpc" />
         <competitor-filter :data="competitor" />
-        <advanced-filter />
+        <advanced-filter :data="conditions" />
         <groupings-filter :data="groupings" />
         <word-count-filter />
       </div>
@@ -47,6 +46,7 @@
         :cpc="cpc"
         :competitor="competitor"
         :groupings="groupings"
+        :advanced="conditions"
       />
     </div>
   </div>
@@ -99,6 +99,14 @@ export default {
         from: "",
         to: "",
       },
+      conditions: [{ id: 1 }],
+      advanced: [{
+        id: 1,
+        advancedSelect: "",
+        advancedKeywordSelect: "",
+        advancedPathSelect: "",
+        advancedTextField: "",
+      }],
       groupings: {
         firstSelect: "",
         secondSelect: "",

@@ -40,7 +40,8 @@ export default {
         "position",
         "volume",
         "cpc",
-        "competitor"
+        "competitor",
+        "groupings"
     ]
 }
 </script>

@@ -16,13 +16,13 @@
       <!-- <div v-if="isShown" class="filter-section"> -->
       <div class="filter-wrapper">
         <!-- <alternative-volume-filter></alternative-volume-filter> -->
-        <position-filter :data="position" @updateParent="updateData" />
-        <volume-filter :data="volume" @updateParent="updateData" />
-        <cpc-filter :data="cpc" @updateParent="updateData" />
-        <competitor-filter :data="competitor" @updateParent="updateData" />
-        <advanced-filter @updateParent="updateData" />
-        <groupings-filter @updateParent="updateData" />
-        <word-count-filter @updateParent="updateData" />
+        <position-filter :data="position" />
+        <volume-filter :data="volume" />
+        <cpc-filter :data="cpc" />
+        <competitor-filter :data="competitor" />
+        <advanced-filter />
+        <groupings-filter :data="groupings" />
+        <word-count-filter />
       </div>
       <div class="btns-wrapper">
         <v-btn class="apply-btn" width="83" height="40"> Apply </v-btn>
@@ -46,6 +46,7 @@
         :volume="volume"
         :cpc="cpc"
         :competitor="competitor"
+        :groupings="groupings"
       />
     </div>
   </div>
@@ -98,14 +99,15 @@ export default {
         from: "",
         to: "",
       },
+      groupings: {
+        firstSelect: "",
+        secondSelect: "", 
+      },
     };
   },
   methods: {
     showFilters() {
       this.isShown = !this.isShown;
-    },
-    updateData(data) {
-      this.volumeFilter = data;
     },
     clearFilters() {
       this.position.title = "";

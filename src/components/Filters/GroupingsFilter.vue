@@ -16,7 +16,7 @@
         <v-list-item>
           <div class="groupings-container">
             <v-select
-              v-model="groupingsEqualSelect"
+              v-model="data.first"
               :items="groupingsEqualItems"
               :menu-props="{ bottom: true, offsetY: true }"
               class="selectBtn mt-2"
@@ -24,7 +24,7 @@
               outlined
             />
             <v-select
-              v-model="groupingsBestSelect"
+              v-model="data.second"
               :items="groupingsBestItems"
               :menu-props="{ bottom: true, offsetY: true }"
               class="selectBtn mt-2 ml-4"
@@ -48,6 +48,7 @@
 <script>
 import ApplyBtn from '../Shared/ApplyBtn.vue';
 export default {
+  props: ['data'],
   components: {
     ApplyBtn
   },

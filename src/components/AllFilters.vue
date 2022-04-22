@@ -13,8 +13,7 @@
       </v-btn>
     </div>
     <div v-if="true" class="filter-section">
-      <!-- <div v-if="isShown" class="filter-section"> -->
-      <div class="filter-section">
+      <div v-if="isShown" class="filter-section">
         <div class="filter-wrapper">
           <position-filter :data="position" @updateData="updatePosition" />
           <volume-filter :data="volume" />

@@ -62,9 +62,9 @@ export default {
   },
   data() {
     return {
-      advancedSelect: "Keyword",
+      advancedSelect: "",
       advancedSelectItems: ["Keyword", "Path"],
-      advancedKeywordSelect: "Contains",
+      advancedKeywordSelect: "",
       advancedKeywordItems: [
         "Contains",
         "Does not contain",
@@ -73,7 +73,7 @@ export default {
         "Starts with",
         "Does not start with",
       ],
-      advancedPathSelect: "Starts with",
+      advancedPathSelect: "",
       advancedPathItems: ["Starts with", "Does not start with"],
       advancedTextField: "",
     };

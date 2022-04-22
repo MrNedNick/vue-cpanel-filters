@@ -16,16 +16,13 @@
       <!-- <div v-if="isShown" class="filter-section"> -->
       <div class="filter-section">
         <div class="filter-wrapper">
-          <position-filter :data="position" />
+          <position-filter :data="position" @updateData="updatePosition" />
           <volume-filter :data="volume" />
           <cpc-filter :data="cpc" />
           <competitor-filter :data="competitor" />
-          <advanced-filter
-            :data="conditions"
-            @delete-condition="deleteCondition(id)"
-          />
+          <advanced-filter />
           <groupings-filter :data="groupings" />
-          <word-count-filter :data="word" @updateData="update" />
+          <word-count-filter :data="word" @updateData="updateWord" />
         </div>
         <div class="btns-wrapper">
           <v-btn class="apply-btn" width="83" height="40"> Apply </v-btn>
@@ -130,7 +127,10 @@ export default {
     deleteCondition(id) {
       this.conditions = this.conditions.filter((task) => task.id !== id);
     },
-    update(newData) {
+    updatePosition(newData) {
+      this.position.title = newData;
+    },
+    updateWord(newData) {
       this.word = newData;
     },
     clearFilters() {
@@ -150,8 +150,12 @@ export default {
       this.competitor.from = "";
       this.competitor.to = "";
 
+      this.advanced = [];
+
       this.groupings.firstSelect = "";
       this.groupings.secondSelect = "";
+
+      this.word = [];
     },
   },
 };

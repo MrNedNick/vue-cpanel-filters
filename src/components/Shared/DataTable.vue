@@ -32,7 +32,7 @@
       Groupings Filter:
       {{ `${groupings.firstSelect} - ${groupings.secondSelect}` }}
     </span>
-    <span class="mb-2"> Advanced Filter: {{ advanced }}</span>
+    <!-- <span class="mb-2"> Advanced Filter: {{ advanced }}</span> -->
     <span class="mb-2"> Word Count Filter: {{ word }}</span>
   </div>
 </template>

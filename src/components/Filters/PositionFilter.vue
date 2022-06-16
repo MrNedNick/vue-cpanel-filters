@@ -2,7 +2,7 @@
   <div class="menu-container">
     <v-menu :close-on-content-click="false" class="menu" ref="menu" offset-y>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on" class="main-btn">
+        <v-btn v-bind="attrs" v-on="on" class="main-btn" :ripple="false">
           Pos:
           {{
             data.title !== "custom" ? data.title : `${data.from} - ${data.to}`
